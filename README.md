@@ -16,9 +16,10 @@ This is where the project overview will go.
 ## Set Up
 1. Clone this repository
 2. Run open index.html in the terminal command line
-3. Any other instructions...
-4. Any other instructions...
-5. Any other instructions...
+3. Enter a title for the to-do list
+4. Enter a task for the the to-do list
+5. Click "Make Task List" button 
+6. Explore the application by *making lists urgent, marking tasks on the list as completed, filtering lists by urgency, deleting lists, searching for lists*
 
 ## Challenges
 
