@@ -107,13 +107,22 @@ span {
   width: 86%;
 }
 
-/* STYLE CREATE LIST FORM */
+/* CREATE A LIST FORM STYLING*/
+.new-task-font {
+  color: #FFFFFF;
+}
+
+.close-img-btn {
+  margin-right: 2%;
+  width: 7%;
+}
+
 #top-make-task-section {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 60%;
-  justify-content: center;
+  height: 70%;
+  justify-content: space-between;
   width: 100%
 }
 
@@ -145,6 +154,7 @@ span {
 #task-title-input {
   border-radius: 4px;
   margin-bottom: 9%;
+  height: 26.15%;
   width: 92%;
 }
 
@@ -159,6 +169,7 @@ span {
 
 #task-item-input {
   border-radius: 4px 0 0 4px;
+  height: 100%;
   width: 80%;
 }
 
@@ -202,7 +213,8 @@ button,
 button:hover,
 .img-wrapper:hover,
 .img-btn:hover,
-.checkbox-img-wrapper:hover  {
+.checkbox-img-wrapper:hover,
+.close-img-btn:hover  {
   cursor: pointer;
 }
 
@@ -335,6 +347,13 @@ button:hover,
 .task-text-active {
   color: #3C6577;
   font-style: italic;
+}
+
+/*  WHEN NO CARDS ARE ON THE PAGE */
+.make-list-msg {
+  font-size: 45px;
+  font-weight: 700;
+  margin-left: 4%;
 }
 
 /* HIDDEN CLASS */

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>Check Yo'Self</title>
   </head>
@@ -23,6 +23,15 @@
         <form id="task-form">
           <p class="task-form-input-labels">Task Title</p>
           <input id="task-title-input" type="text" name="">
+
+          <section class="single-task-wrapper">
+            <!-- <div class="img-wrapper"> -->
+              <img class="close-img-btn" src="./assets/delete.svg" alt="close icon">
+            <!-- </div> -->
+            <p class="task-text new-task-font">Every chance I get, I water the plants.</p>
+          </section>
+
+
           <p class="task-form-input-labels">Task Item</p>
           <section id="task-item-wrapper">
             <input id="task-item-input" type="text" name="">
@@ -40,7 +49,8 @@
       </section>
     </section>
     <section id="right-side-wrapper">
-      <section id="left-side">
+      <p class="task-text make-list-msg hidden">Create a to-do list.</p>
+      <section id="left-side" class="">
         <div class="card regular-card">
           <header class="card-header">
             <h1 class="card-title regular-card-title">Task Title</h1>
@@ -180,7 +190,7 @@
           </footer>
         </div>
       </section>
-      <section id="right-side">
+      <section id="right-side" class="">
           <div class="card urgent-card">
             <header class="card-header">
               <h1 class="card-title urgent-card-title">Task Title</h1>
