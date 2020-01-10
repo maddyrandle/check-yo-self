@@ -29,12 +29,10 @@ This is where project challenges will go.
 This is where project wins will go.
 
 ## Composition
+ Desktop Layout:
+![Image of Comp](https://i.postimg.cc/qRdS0w5c/Screen-Shot-2020-01-09-at-4-55-47-PM.png)
 
-![Image of Comp](An image link will go here.)
-
-![Image of Comp](An image link will go here.)
-
-![Image of Comp](An image link will go here.)
+![Image of Mobile Layout Comp](An image link will go here.)
 
 ## Application
 
