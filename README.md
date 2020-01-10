@@ -34,10 +34,6 @@ Desktop Layout:
 
 ![Image of Comp](https://i.postimg.cc/qRdS0w5c/Screen-Shot-2020-01-09-at-4-55-47-PM.png)
 
-Mobile Layout:
-
-![Image of Comp](https://i.postimg.cc/7ZKSqZtK/Screen-Shot-2020-01-09-at-5-03-56-PM.png)
-
 ## Application
 
 ![Image of App](An image link will go here.)
