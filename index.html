@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>Check Yo'Self</title>
   </head>
   <body>
     <section id="header-wrapper">
       <section id="header">
-        <h1>CHECK <span>YO'</span> SELF</h1>
+        <h1 id="page-title">CHECK <span>YO'</span> SELF</h1>
         <div id="search-box-wrapper">
           <div id="search-img-wrapper">
             <img id="search-img-btn" src="./assets/search.svg" alt="magnifying glass">
@@ -18,10 +18,8 @@
         </div>
       </section>
     </section>
-
     <section id="left-side-wrapper">
-
-      <section id="make-task-top-section">
+      <section id="top-make-task-section">
         <form id="task-form">
           <p class="task-form-input-labels">Task Title</p>
           <input id="task-title-input" type="text" name="">
@@ -37,14 +35,56 @@
         <button id="make-list-btn" type="button">Make Task List</button>
         <button id="clear-all-btn" type="button">Clear All</button>
       </section>
-      <section id="make-tast-bottom-section">
-        <button id="urgent-filter-btn" type="button">Filter by Urgency</button>
+      <section id="make-task-bottom-section">
+        <button class="urgent-filter-btn hidden" type="button">Filter by Urgency</button>
+        <button class="urgent-filter-btn-active" type="button">Filter by Urgency</button>
       </section>
-
     </section>
 
     <section id="right-side-wrapper">
+      <section id="left-side">
+        <div class="task-list-card">
+          <header class="card-header">
+            <h1 class="card-title">Task Title</h1>
+          </header>
+          <main class="card-main">
 
+          </main>
+          <footer class="card-footer">
+            <div class="urgent-img-wrapper">
+              <img class="urgent-img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+              <p class="footer-font">URGENT</p>
+            </div>
+            <div class="close-img-wrapper">
+              <img class="close-img-btn" src="./assets/delete.svg" alt="close icon">
+              <img class="close-img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
+              <p class="footer-font">DELETE</p>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+      <section id="right-side">
+          <div class="urgent-card">
+            <header class="card-header">
+              <h1 class="card-title-urgent">Task Title</h1>
+            </header>
+            <main class="card-main">
+
+            </main>
+            <footer class="card-footer-urgent">
+              <div class="urgent-img-wrapper">
+                <img class="urgent-img-btn-active" src="./assets/urgent-active.svg" alt=" red lightening bolt">
+                <p class="footer-font-urgent">URGENT</p>
+              </div>
+              <div class="close-img-wrapper">
+                <img class="close-img-btn hidden" src="./assets/delete.svg" alt="close icon">
+                <img class="close-img-btn-active" src="./assets/delete-active.svg" alt="close icon">
+                <p class="footer-font-urgent">DELETE</p>
+              </div>
+            </footer>
+          </div>
+      </section>
     </section>
 
 
