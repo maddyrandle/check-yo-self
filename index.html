@@ -2,10 +2,287 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>Check Yo'Self</title>
   </head>
   <body>
+    <section id="header-wrapper">
+      <section id="header">
+        <h1 id="page-title">CHECK <span>YO'</span> SELF</h1>
+        <div id="search-box-wrapper">
+          <div id="search-img-wrapper">
+            <img id="search-img-btn" src="./assets/search.svg" alt="magnifying glass">
+          </div>
+          <input id="search-input" type="text" name="" value="Search" onfocus="this.value=''">
+        </div>
+      </section>
+    </section>
+    <section id="left-side-wrapper">
+      <section id="top-make-task-section">
+        <form id="task-form">
+          <p class="task-form-input-labels">Task Title</p>
+          <input id="task-title-input" type="text" name="">
+
+          <section class="single-task-wrapper">
+            <!-- <div class="img-wrapper"> -->
+              <img class="close-img-btn" src="./assets/delete.svg" alt="close icon">
+            <!-- </div> -->
+            <p class="task-text new-task-font">Every chance I get, I water the plants.</p>
+          </section>
+
+
+          <p class="task-form-input-labels">Task Item</p>
+          <section id="task-item-wrapper">
+            <input id="task-item-input" type="text" name="">
+            <div id="add-task-img-wrapper">
+              <img id="add-task-btn" src="./assets/search.svg">
+            </div>
+          </section>
+        </form>
+        <button id="make-list-btn" type="button">Make Task List</button>
+        <button id="clear-all-btn" type="button">Clear All</button>
+      </section>
+      <section id="make-task-bottom-section">
+        <button class="urgent-filter-btn hidden" type="button">Filter by Urgency</button>
+        <button class="urgent-filter-btn-active" type="button">Filter by Urgency</button>
+      </section>
+    </section>
+    <section id="right-side-wrapper">
+      <p class="task-text make-list-msg hidden">Create a to-do list.</p>
+      <section id="left-side" class="">
+        <div class="card regular-card">
+          <header class="card-header">
+            <h1 class="card-title regular-card-title">Task Title</h1>
+          </header>
+          <main class="card-main">
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Don't ever play yourself.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+              </div>
+              <p class="task-text task-text-active">Lion! Cloth talk.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+          </main>
+          <footer class="card-footer regular-card-footer">
+            <div class="img-wrapper">
+              <img class="img-btn urgent-img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+              <p class="regular-footer-font">URGENT</p>
+            </div>
+            <div class="img-wrapper">
+              <img class="img-btn close-img-btn" src="./assets/delete.svg" alt="close icon">
+              <img class="close-img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
+              <p class="regular-footer-font">DELETE</p>
+            </div>
+          </footer>
+        </div>
+        <div class="card urgent-card">
+          <header class="card-header">
+            <h1 class="card-title urgent-card-title">Task Title</h1>
+          </header>
+          <main class="card-main">
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+              </div>
+              <p class="task-text task-text-active">Lion! Cloth talk.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+              </div>
+              <p class="task-text task-text-active">Congratulations, you played yourself.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+          </main>
+          <footer class="card-footer urgent-card-footer">
+            <div class="img-wrapper">
+              <img class="img-btn urgent-img-btn-active" src="./assets/urgent-active.svg" alt=" red lightening bolt">
+              <p class="urgent-footer-font">URGENT</p>
+            </div>
+            <div class="img-wrapper">
+              <img class="img-btn" src="./assets/delete.svg" alt="close icon">
+              <img class="img-btn close-img-btn-active hidden" src="./assets/delete-active.svg" alt="close icon">
+              <p class="urgent-footer-font">DELETE</p>
+            </div>
+          </footer>
+        </div>
+        <div class="card regular-card">
+          <header class="card-header">
+            <h1 class="card-title regular-card-title">Task Title</h1>
+          </header>
+          <main class="card-main">
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Don't ever play yourself.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+              </div>
+              <p class="task-text task-text-active">Lion! Cloth talk.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+            <section class="single-task-wrapper">
+              <div class="checkbox-img-wrapper">
+                <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+              </div>
+              <p class="task-text">Every chance I get, I water the plants.</p>
+            </section>
+          </main>
+          <footer class="card-footer regular-card-footer">
+            <div class="img-wrapper">
+              <img class="img-btn urgent-img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+              <p class="regular-footer-font">URGENT</p>
+            </div>
+            <div class="img-wrapper">
+              <img class="img-btn close-img-btn" src="./assets/delete.svg" alt="close icon">
+              <img class="close-img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
+              <p class="regular-footer-font">DELETE</p>
+            </div>
+          </footer>
+        </div>
+      </section>
+      <section id="right-side" class="">
+          <div class="card urgent-card">
+            <header class="card-header">
+              <h1 class="card-title urgent-card-title">Task Title</h1>
+            </header>
+            <main class="card-main">
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+                </div>
+                <p class="task-text task-text-active">Lion! Cloth talk.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+                </div>
+                <p class="task-text task-text-active">Congratulations, you played yourself.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="empty circle check box">
+                </div>
+                <p class="task-text task-text-active">Every chance I get, I water the plants.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="empty circle check box">
+                </div>
+                <p class="task-text task-text-active">Every chance I get, I water the plants.</p>
+              </section>
+            </main>
+            <footer class="card-footer urgent-card-footer">
+              <div class="img-wrapper">
+                <img class="img-btn urgent-img-btn-active" src="./assets/urgent-active.svg" alt=" red lightening bolt">
+                <p class="urgent-footer-font">URGENT</p>
+              </div>
+              <div class="img-wrapper">
+                <img class="close-img-btn hidden" src="./assets/delete.svg" alt="close icon">
+                <img class="img-btn close-img-btn-active" src="./assets/delete-active.svg" alt="close icon">
+                <p class="urgent-footer-font">DELETE</p>
+              </div>
+            </footer>
+          </div>
+          <div class="card regular-card">
+            <header class="card-header">
+              <h1 class="card-title regular-card-title">Task Title</h1>
+            </header>
+            <main class="card-main">
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+                </div>
+                <p class="task-text">Don't ever play yourself.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
+                </div>
+                <p class="task-text task-text-active">Lion! Cloth talk.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+                </div>
+                <p class="task-text">Every chance I get, I water the plants.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+                </div>
+                <p class="task-text">Every chance I get, I water the plants.</p>
+              </section>
+              <section class="single-task-wrapper">
+                <div class="checkbox-img-wrapper">
+                  <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+                </div>
+                <p class="task-text">Every chance I get, I water the plants.</p>
+              </section>
+            </main>
+            <footer class="card-footer regular-card-footer">
+              <div class="img-wrapper">
+                <img class="img-btn urgent-img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+                <p class="regular-footer-font">URGENT</p>
+              </div>
+              <div class="img-wrapper">
+                <img class="img-btn close-img-btn" src="./assets/delete.svg" alt="close icon">
+                <img class="close-img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
+                <p class="regular-footer-font">DELETE</p>
+              </div>
+            </footer>
+          </div>
+      </section>
+    </section>
   <script src="./task.js"></script>
   <script src="./todo-list.js"></script>
   <script src="./main.js"></script>
