@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>Check Yo'Self</title>
   </head>
@@ -11,17 +11,38 @@
       <section id="header">
         <h1>CHECK <span>YO'</span> SELF</h1>
         <div id="search-box-wrapper">
-          <div id="img-wrapper">
-            <img id="magnifying-glass-img" src="./assets/search.svg" alt="magnifying glass">
+          <div id="search-img-wrapper">
+            <img id="search-img-btn" src="./assets/search.svg" alt="magnifying glass">
           </div>
-
-          <input id="search-box" type="text" name="" value="Search" onfocus="this.value=''">
+          <input id="search-input" type="text" name="" value="Search" onfocus="this.value=''">
         </div>
       </section>
     </section>
+
     <section id="left-side-wrapper">
 
+      <section id="make-task-top-section">
+        <form id="task-form">
+          <p class="task-form-input-labels">Task Title</p>
+          <input id="task-title-input" type="text" name="">
+          <p class="task-form-input-labels">Task Item</p>
+          <section id="task-item-wrapper">
+
+            <input id="task-item-input" type="text" name="">
+            <div id="add-task-img-wrapper">
+              <img id="add-task-btn" src="./assets/search.svg">
+            </div>
+          </section>
+        </form>
+        <button id="make-list-btn" type="button">Make Task List</button>
+        <button id="clear-all-btn" type="button">Clear All</button>
+      </section>
+      <section id="make-tast-bottom-section">
+        <button id="urgent-filter-btn" type="button">Filter by Urgency</button>
+      </section>
+
     </section>
+
     <section id="right-side-wrapper">
 
     </section>
