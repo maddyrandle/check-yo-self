@@ -13,7 +13,7 @@ body {
   "left right";
   grid-template-columns: 2fr 4fr;
   grid-template-rows: 1fr 8fr;
-  height: 850px;
+  height: 900px;
 }
 
 #header-wrapper {
@@ -24,7 +24,6 @@ body {
   background-color: #587A8A;
   border-right: 2px solid #3E6678;
   grid-area: left;
-  overflow-y: auto;
   padding-top: 5%;
 }
 
@@ -35,9 +34,9 @@ body {
   grid-template-areas:
   "one two";
   grid-template-columns: 2fr 2fr;
-  overflow-y: auto;
 }
 
+/* LEFT AND RIGHT SIDE OF WHERE CARDS APPEAR */
 #left-side {
   grid-area: one;
   padding: 6% 2% 6% 6%;
@@ -107,7 +106,17 @@ span {
   width: 86%;
 }
 
-/* CREATE A LIST FORM STYLING*/
+/* STYLING ON FORM THAT CREATES LIST*/
+.add-task-holder {
+  height: 190px;
+  margin: -5% 4% 4%;
+  overflow-y: scroll;
+}
+
+.new-task-wrapper {
+  margin-bottom: 5%;
+}
+
 .new-task-font {
   color: #FFFFFF;
 }
@@ -121,9 +130,8 @@ span {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 70%;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
 }
 
 #task-form {
@@ -154,14 +162,14 @@ span {
 #task-title-input {
   border-radius: 4px;
   margin-bottom: 9%;
-  height: 26.15%;
+  /* height: 26.15%; */
   width: 92%;
 }
 
 #task-item-wrapper {
   align-items: center;
   display: flex;
-  height: 26.15%;
+  /* height: 26.15%; */
   justify-content: center;
   margin-top: 1%;
   width: 100%;
@@ -188,7 +196,7 @@ span {
 }
 
 #add-task-btn {
-  width: 92%;
+  width: 93%;
 }
 
 #add-task-btn:hover {
@@ -232,7 +240,7 @@ button:hover,
   width: 92%;
 }
 
-#make-task-bottom-section {
+#bottom-make-task-section {
   align-items: center;
   border-top: 2px solid #3E6678;
   display: flex;
@@ -292,7 +300,8 @@ button:hover,
   width: 34%;
 }
 
-.single-task-wrapper {
+.single-task-wrapper,
+.new-task-wrapper {
   display: flex;
   margin: 4%;
 }
