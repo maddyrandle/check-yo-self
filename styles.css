@@ -5,4 +5,10 @@
   background-color: skyblue;
 }
 
+body {
+  border: 2px solid red;
+  display: grid;
+  font-family: 'Open Sans', sans-serif;
+  height: 850px;
+}
 /*  */
