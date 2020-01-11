@@ -20,7 +20,7 @@
     </section>
 
     <section id="form-and-filter-wrapper">
-      <section id="form-wrapper">
+      <section class="form-wrapper">
         <form>
           <p class="input-label">Task Title</p>
           <input id="title-input" type="text">
@@ -32,7 +32,7 @@
             <button class="new-task-btn" type="button" disabled>+</button>
           </section>
         </form>
-        <button id="new-list-btn" type="button" disabled>Make Task List</button>
+        <button class="new-list-btn" type="button" disabled>Make Task List</button>
         <button id="clear-btn" type="button" disabled>Clear All</button>
       </section>
       <section id="filter-urgent-wrapper">
@@ -44,11 +44,12 @@
     <section id="list-wrapper">
       <p class="task-text make-list-msg hidden">Create a to-do list.</p>
 
-      <section id="left-side" class="">
+      <section class="left-side hidden">
         <!-- NEW LIST CARD GOES HERE -->
       </section>
 
-      <section id="right-side" class="">
+      <section class="rigth-side hidden">
+
         <div class="card urgent-card hidden">
             <header class="card-header">
               <h1 class="card-title urgent-card-title">${titleInput.value}</h1>

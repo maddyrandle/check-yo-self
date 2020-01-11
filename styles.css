@@ -37,12 +37,12 @@ body {
 }
 
 /* LEFT AND RIGHT SIDE OF WHERE CARDS APPEAR */
-#left-side {
+.left-side {
   grid-area: one;
   padding: 6% 2% 6% 6%;
 }
 
-#right-side {
+.right-side {
   grid-area: two;
   padding: 6% 6% 6% 2%;
 }
@@ -128,7 +128,7 @@ span {
   width: 7%;
 }
 
-#form-wrapper {
+.form-wrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
