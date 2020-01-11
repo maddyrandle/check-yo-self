@@ -9,7 +9,7 @@ class Task {
     taskHolder.classList.remove('hidden');
     taskHolder.insertAdjacentHTML('beforeend', `
     <section id="${newTask.id}" class="new-task-wrapper">
-      <img class="close-img-btn remove-task" src="./assets/delete.svg" alt="close icon">
+      <img class="close-img-btn" src="./assets/delete.svg" alt="close icon">
       <p class="task-text new-task-font">${newTask.item}</p>
     </section>
     `);

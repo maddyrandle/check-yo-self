@@ -6,42 +6,58 @@ var taskHolder = document.querySelector('.task-form-container');
 var taskInputContainer = document.querySelector('.task-input-wrapper');
 var tasks = [];
 
-taskInput.addEventListener('keyup', checkInputValues);
-titleInput.addEventListener('keyup', checkInputValues);
+taskInput.addEventListener('keyup', enableButtons);
+titleInput.addEventListener('keyup', enableButtons);
 taskHolder.addEventListener('click', removeTask);
 newListBtn.addEventListener('click', addNewList);
 taskInputContainer.addEventListener('click', collectTaskInfo);
 
 // FINDS THE EVENT WHEN THE NEW TASK BTN IS CLICKED
 function collectTaskInfo() {
-  if (event.target.className === "new-task-btn") {
+  if (event.target.className === 'new-task-btn') {
   console.log('booya baby');
   createNewTask(taskInput.value, false);
   }
 }
 
-  function createNewTask(item, complete) {
-    var task = new Task(item, complete);
-    tasks.push(task);
-    task.addNewTask(task);
-    clearInputField();
-    checkInputValues();
-  }
-
-// REMOVES A SINGLE TASK FROM FORM
-function removeTask() {
-  if (event.target.classList.contains("remove-task")) {
-  event.target.parentElement.remove();
-  }
-};
-
-// CHECKS FOR SOMETHING IN THE INPUT AND ENABLES / DISABLES THE NEW TASK & LIST BTN
-function checkInputValues() {
-  taskInput.value !== '' ? newTaskBtn.disabled = false : newTaskBtn.disabled = true;
-  titleInput.value !== '' ? newListBtn.disabled = false : newListBtn.disabled = true;
+function createNewTask(item, complete) {
+  var task = new Task(item, complete);
+  tasks.push(task);
+  task.addNewTask(task);
+  clearInputField();
+  enableButtons();
 }
 
-// CLEARS THE INPUT FIELDS ON FORM
+function findTaskId() {
+  var taskId = parseInt(event.target.closest('.close-img-btn').id);
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === taskId) {
+      return tasks[i];
+    }
+  }
+}
+
+function removeTask() {
+  if (event.target.className === 'close-img-btn') {
+    var taskToRemove = findTaskId(event);
+    var i = tasks.indexOf(taskToRemove);
+    tasks.splice(i, 1);
+    event.target.closest('.new-task-wrapper').remove();
+  }
+  hideTaskContainer();
+}
+
+function hideTaskContainer() {
+  if (tasks.length === 0) {
+    taskHolder.classList.add('hidden');
+  }
+}
+
+function enableButtons() {
+  taskInput.value !== '' ? newTaskBtn.disabled = false : newTaskBtn.disabled = true;
+  titleInput.value || taskInput.value !== '' ? newListBtn.disabled = false : newListBtn.disabled = true;
+}
+
 function clearInputField() {
   var inputField = document.querySelector('form');
   inputField.reset();
