@@ -4,6 +4,7 @@ var taskHolder = document.querySelector('.task-form-container');
 var leftListHolder = document.querySelector('.left-side');
 var taskInputContainer = document.querySelector('.task-input-wrapper');
 var formContainer = document.querySelector('.form-wrapper');
+var noListMsg = document.querySelector('.make-list-msg');
 var tasks = [];
 var lists = [];
 
@@ -70,6 +71,7 @@ function hideTaskContainer() {
 }
 
 function enableButtons() {
+  var newListBtn = document.querySelector('.new-list-btn')
   var newTaskBtn = document.querySelector('.new-task-btn');
   taskInput.value !== '' ? newTaskBtn.disabled = false : newTaskBtn.disabled = true;
   titleInput.value || taskInput.value !== '' ? newListBtn.disabled = false : newListBtn.disabled = true;

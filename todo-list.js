@@ -23,6 +23,7 @@ class ToDoList {
   }
 
   addNewList(newList) {
+    noListMsg.classList.add('hidden');
     leftListHolder.classList.remove('hidden');
     leftListHolder.insertAdjacentHTML('afterbegin', `
     <div id="${newList.id}" class="card regular-card">
