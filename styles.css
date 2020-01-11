@@ -168,7 +168,7 @@ form {
   width: 92%;
 }
 
-#task-input-wrapper {
+.task-input-wrapper {
   align-items: center;
   display: flex;
   /* height: 26.15%; */
@@ -183,7 +183,7 @@ form {
   width: 80%;
 }
 
-#new-task-btn {
+.new-task-btn {
   margin: 0 0 0 -1%;
   width: 13%;
 }

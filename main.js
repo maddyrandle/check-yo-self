@@ -1,28 +1,39 @@
-var titleInput = document.querySelector('#title-input');
-var newTaskInput = document.querySelector('#task-input');
-var newTaskBtn = document.querySelector('#new-task-btn');
+var newTaskBtn = document.querySelector('.new-task-btn');
 var newListBtn = document.querySelector('#new-list-btn');
-// var
+var titleInput = document.querySelector('#title-input');
+var taskInput = document.querySelector('#task-input');
 var taskHolder = document.querySelector('.task-form-container');
+var taskInputContainer = document.querySelector('.task-input-wrapper');
+var tasks = [];
 
-newTaskInput.addEventListener('keyup', checkInputValues);
+taskInput.addEventListener('keyup', checkInputValues);
 titleInput.addEventListener('keyup', checkInputValues);
 taskHolder.addEventListener('click', removeTask);
 newListBtn.addEventListener('click', addNewList);
+taskInputContainer.addEventListener('click', collectTaskInfo);
 
-// CLEARS TASKS FROM FORM WHEN MAKE LIST BUTTON IS CLICKED
-function clearTasksFromForm() {
-
+// FINDS THE EVENT WHEN THE NEW TASK BTN IS CLICKED
+function collectTaskInfo() {
+  if (event.target.className === "new-task-btn") {
+  console.log('booya baby');
+  createNewTask(taskInput.value, false);
+  }
 }
 
+// INSTANTIATES A NEW TASK ITEM
+  function createNewTask(item, complete) {
+    var task = new Task(item, complete);
+    tasks.push(task);
+    addNewTask(task);
+  }
 
 // ADDS A NEW TASK TO THE FORM
-function addNewTask() {
+function addNewTask(newTask) {
   taskHolder.classList.remove('hidden');
   taskHolder.insertAdjacentHTML('beforeend', `
-  <section class="new-task-wrapper">
+  <section id="${newTask.id}" class="new-task-wrapper">
     <img class="close-img-btn remove-task" src="./assets/delete.svg" alt="close icon">
-    <p class="task-text new-task-font">${newTaskInput.value}</p>
+    <p class="task-text new-task-font">${newTask.item}</p>
   </section>
   `);
   newTaskBtn.disabled = true;
@@ -38,9 +49,7 @@ function removeTask() {
 
 // CHECKS FOR SOMETHING IN THE INPUT AND ENABLES / DISABLES THE NEW TASK & LIST BTN
 function checkInputValues() {
-  newTaskBtn.addEventListener('click', addNewTask);
-  console.log('here')
-  newTaskInput.value !== '' ? newTaskBtn.disabled = false : newTaskBtn.disabled = true;
+  taskInput.value !== '' ? newTaskBtn.disabled = false : newTaskBtn.disabled = true;
   titleInput.value !== '' ? newListBtn.disabled = false : newListBtn.disabled = true;
 }
 
@@ -50,8 +59,9 @@ function clearInputField() {
   inputField.reset();
 }
 
+
+
 function addNewList() {
-  console.log('here finally')
   var listHolder = document.querySelector('#left-side');
   listHolder.insertAdjacentHTML('afterbegin', `
   <div class="card regular-card">

@@ -1,8 +1,8 @@
 class Task {
-  constructor(id, name) {
-    this.id = id;
-    this.name = name;
-    this.completed = false;
+  constructor(item, complete) {
+    this.id = Date.now();
+    this.item = item;
+    this.completed = complete;
   }
 
   addTask() {
@@ -10,7 +10,7 @@ class Task {
   }
 
   removeTask() {
-    
+
   }
 }
 
