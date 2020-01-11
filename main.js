@@ -20,24 +20,12 @@ function collectTaskInfo() {
   }
 }
 
-// INSTANTIATES A NEW TASK ITEM
   function createNewTask(item, complete) {
     var task = new Task(item, complete);
     tasks.push(task);
-    addNewTask(task);
-  }
-
-// ADDS A NEW TASK TO THE FORM
-function addNewTask(newTask) {
-  taskHolder.classList.remove('hidden');
-  taskHolder.insertAdjacentHTML('beforeend', `
-  <section id="${newTask.id}" class="new-task-wrapper">
-    <img class="close-img-btn remove-task" src="./assets/delete.svg" alt="close icon">
-    <p class="task-text new-task-font">${newTask.item}</p>
-  </section>
-  `);
-  newTaskBtn.disabled = true;
-  clearInputField();
+    task.addNewTask(task);
+    clearInputField();
+    checkInputValues();
   }
 
 // REMOVES A SINGLE TASK FROM FORM
