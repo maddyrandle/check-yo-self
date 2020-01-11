@@ -44,7 +44,7 @@ function makeList(title, tasks, urgent) {
 
 function pageLoad() {
   if ('list' in localStorage) {
-   checkLocalStorage()
+   checkLocalStorage();
   }
 }
 
@@ -61,7 +61,7 @@ function checkLocalStorage() {
     }
 }
 
-function findTaskId() {
+function findId() {
   var taskId = parseInt(event.target.closest('.close-img-btn').id);
   for (var i = 0; i < tasks.length; i++) {
     if (tasks[i].id === taskId) {
@@ -72,7 +72,7 @@ function findTaskId() {
 
 function removeTask() {
   if (event.target.className === 'close-img-btn') {
-    var taskToRemove = findTaskId(event);
+    var taskToRemove = findId(event);
     var i = tasks.indexOf(taskToRemove);
     tasks.splice(i, 1);
     event.target.closest('.new-task-wrapper').remove();
