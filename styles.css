@@ -20,14 +20,14 @@ body {
   grid-area: header;
 }
 
-#left-side-wrapper {
+#form-and-filter-wrapper {
   background-color: #587A8A;
   border-right: 2px solid #3E6678;
   grid-area: left;
   padding-top: 5%;
 }
 
-#right-side-wrapper {
+#list-wrapper {
   background-color: #F2F6F7;
   display: grid;
   grid-area: right;
@@ -107,7 +107,7 @@ span {
 }
 
 /* STYLING ON FORM THAT CREATES LIST*/
-.add-task-holder {
+.task-form-container {
   height: 130px;
   margin: -5% 4% 4%;
   overflow-y: scroll;
@@ -128,7 +128,7 @@ span {
   width: 7%;
 }
 
-#top-make-task-section {
+#form-wrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -136,21 +136,21 @@ span {
   width: 100%;
 }
 
-#task-form {
+form {
   align-items: center;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.task-form-input-labels {
+.input-label {
   color: #F2F6F7;
   font-size: 20px;
   width: 92%;
 }
 
-#task-title-input ,
-#task-item-input {
+#title-input ,
+#task-input {
   border: 2px solid #1F1F3D;
   color: #1F1F3D;
   font-family: 'Open Sans', sans-serif;
@@ -161,14 +161,14 @@ span {
   padding: 2% 0 2% 4%;
 }
 
-#task-title-input {
+#title-input {
   border-radius: 4px;
   margin-bottom: 9%;
   /* height: 26.15%; */
   width: 92%;
 }
 
-#task-item-wrapper {
+#task-input-wrapper {
   align-items: center;
   display: flex;
   /* height: 26.15%; */
@@ -177,13 +177,13 @@ span {
   width: 100%;
 }
 
-#task-item-input {
+#task-input {
   border-radius: 4px 0 0 4px;
   height: 100%;
   width: 80%;
 }
 
-#add-task-btn {
+#new-task-btn {
   margin: 0 0 0 -1%;
   width: 13%;
 }
@@ -225,7 +225,7 @@ button:hover,
   width: 92%;
 }
 
-#bottom-make-task-section {
+#filter-urgent-wrapper {
   align-items: center;
   border-top: 2px solid #3E6678;
   display: flex;
