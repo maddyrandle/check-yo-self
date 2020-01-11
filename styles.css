@@ -108,7 +108,7 @@ span {
 
 /* STYLING ON FORM THAT CREATES LIST*/
 .add-task-holder {
-  height: 120px;
+  height: 130px;
   margin: -5% 4% 4%;
   overflow-y: scroll;
   width: 100%;
