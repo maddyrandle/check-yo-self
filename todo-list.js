@@ -7,7 +7,7 @@ class ToDoList {
   }
 
   saveToStorage() {
-    localStorage.setItem('task', JSON.stringify(tasks))
+    localStorage.setItem('list', JSON.stringify(lists));
   }
 
   deleteFromStorage() {
@@ -23,6 +23,8 @@ class ToDoList {
   }
 
   addNewList(newList) {
+    var noListMsg = document.querySelector('.make-list-msg');
+    var leftListHolder = document.querySelector('.left-side');
     noListMsg.classList.add('hidden');
     leftListHolder.classList.remove('hidden');
     leftListHolder.insertAdjacentHTML('afterbegin', `
@@ -35,7 +37,7 @@ class ToDoList {
           <div class="checkbox-img-wrapper">
             <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
           </div>
-          <p class="task-text">${tasks[0].item}</p>
+          <p class="task-text">${tasks.item}</p>
         </section>
       </main>
       <footer class="card-footer regular-card-footer">
