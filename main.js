@@ -7,6 +7,7 @@ var tasks = [];
 var lists = [];
 
 
+
 taskInput.addEventListener('keyup', enableAndDisableButtons);
 titleInput.addEventListener('keyup', enableAndDisableButtons);
 taskHolder.addEventListener('click', removeTask);
@@ -36,6 +37,8 @@ function createNewTask(item, complete) {
 function collectFormInfo() {
   if (event.target.className === 'new-list-btn') {
   makeList(titleInput.value, tasks, false);
+  taskHolder.innerText = '';
+  hideTaskContainer();
   }
 }
 
@@ -47,6 +50,7 @@ function makeList(title, tasks, urgent) {
   clearInputField();
   enableAndDisableButtons();
   list.saveToStorage(lists);
+  // console.log(event.target.parentNode.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.id)
 }
 
 // STARTS PROCESS OF BRINGING BACK KEY:LIST FROM LOCALSTORAGE
@@ -98,18 +102,36 @@ function removeTask() {
 // REMOVES EMPTY CONTAINER WHERE TASKS ARE ADDED ON THE
 // PAGE, IF NO TASKS ARE ADDED ON THE FORM
 function hideTaskContainer() {
-  if (tasks.length === 0) {
+  if (taskHolder.innerText === '' || tasks.length === 0) {
     taskHolder.classList.add('hidden');
+  }
+}
+
+function clearAllBtn() {
+  if (event.target.className === 'clear-btn') {
+    taskHolder.innerText = '';
+    clearInputField();
+    hideTaskContainer();
   }
 }
 
 // CHECKS INPUT FIELDS AND ENABLES OR DISABLES BUTTONS ON
 // THE FORM
 function enableAndDisableButtons() {
+  var noTaskInput = taskInput.value === '';
+  var noTitleInput = titleInput.value === '';
+  var noTasks = taskHolder.classList.contains('hidden');
   var newListBtn = document.querySelector('.new-list-btn')
   var newTaskBtn = document.querySelector('.new-task-btn');
-  taskInput.value !== '' ? newTaskBtn.disabled = false : newTaskBtn.disabled = true;
-  titleInput.value || taskInput.value !== '' ? newListBtn.disabled = false : newListBtn.disabled = true;
+  var clearBtn = document.querySelector('.clear-btn');
+  noTaskInput ? newTaskBtn.disabled = true : newTaskBtn.disabled = false;
+  noTitleInput || noTasks ? newListBtn.disabled = true : newListBtn.disabled = false;
+  if (noTasks || noTitleInput) {
+    clearBtn.disabled = true;
+  } else {
+    clearBtn.disabled = false;
+    formContainer.addEventListener('click', clearAllBtn);
+  }
 }
 
 // CLEARS THE INPUT FIELDS ON THE FORM

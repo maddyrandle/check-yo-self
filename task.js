@@ -14,10 +14,6 @@ class Task {
     </section>
     `);
   }
-
-  removeTask() {
-
-  }
 }
 
 
