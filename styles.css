@@ -286,14 +286,34 @@ button:hover,
   width: 34%;
 }
 
-.single-task-wrapper,
+.all-tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .single-task-wrapper, */
 .new-task-wrapper {
   display: flex;
   margin: 4%;
 }
 
+.single-task-wrapper {
+  display: grid;
+  font-size: 20px;
+  grid-template-areas:
+  "button item";
+  grid-template-columns: 1fr 10fr;
+  margin: 0 1% 0 4%;
+  padding: 2% 0 0;
+}
+
 .task-text {
   font-size: 20px;
+
+}
+
+.task-text-p {
+  grid-area: item;
 }
 
 /* INACTIVE CARD STYLING */
@@ -317,7 +337,8 @@ button:hover,
 
 .checkbox-img-wrapper {
   margin-right: 4%;
-  width: 7%;
+  width: 28px;
+  grid-area: button;
 }
 
 /* ACTIVE CARD STYLING */
