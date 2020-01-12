@@ -5,7 +5,7 @@ var taskInputContainer = document.querySelector('.task-input-wrapper');
 var formContainer = document.querySelector('.form-wrapper');
 var tasks = [];
 var lists = [];
-var checklistHTML;
+
 
 taskInput.addEventListener('keyup', enableAndDisableButtons);
 titleInput.addEventListener('keyup', enableAndDisableButtons);
@@ -118,5 +118,22 @@ function clearInputField() {
   inputField.reset();
 }
 
+
+function addTasksToList() {
+  var checklistHTML;
+  var taskHolder = document.querySelector('.all-tasks');
+  for (var i = 0; i < tasks.length; i++) {
+    checklistHTML = tasks[i].item;
+    taskHolder.insertAdjacentHTML('beforeend', `
+    <div class="single-task-wrapper">
+      <div class="checkbox-img-wrapper">
+        <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
+        <img class="checkbox-img-active hidden" src="./assets/checkbox-active.svg" alt="circle check box checked">
+      </div
+      <p class="task-text-p">${checklistHTML}</p>
+    </div>
+    `);
+  }
+}
 
 //
