@@ -38,7 +38,8 @@ class ToDoList {
       </main>
       <footer class="card-footer regular-card-footer">
         <div class="img-wrapper">
-          <img class="img-btn urgent-img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+          <img class="img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+          <img class="img-btn hidden" src="./assets/urgent-active.svg" alt=" red lightening bolt">
           <p class="regular-footer-font">URGENT</p>
         </div>
         <div class="img-wrapper">
