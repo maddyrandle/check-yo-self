@@ -33,6 +33,11 @@ class ToDoList {
     var leftListHolder = document.querySelector('.left-side');
     noListMsg.classList.add('hidden');
     leftListHolder.classList.remove('hidden');
+
+    for (var i = 0; i < tasks.length; i++) {
+      checklistHTML += tasks[i].item;
+    }
+
     leftListHolder.insertAdjacentHTML('afterbegin', `
     <div id="${newList.id}" class="card regular-card">
       <header class="card-header">
@@ -46,7 +51,8 @@ class ToDoList {
             <img class="checkbox-img-active hidden" src="./assets/checkbox-active.svg" alt="circle check box checked">
           </div>
 
-          <p class="task-text">${tasks.item}</p>
+          <p class="task-text">${checklistHTML}</p>
+
         </section>
       </main>
       <footer class="card-footer regular-card-footer">
