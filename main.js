@@ -6,8 +6,6 @@ var formContainer = document.querySelector('.form-wrapper');
 var tasks = [];
 var lists = [];
 
-
-
 taskInput.addEventListener('keyup', enableAndDisableButtons);
 titleInput.addEventListener('keyup', enableAndDisableButtons);
 taskHolder.addEventListener('click', removeTask);
@@ -99,6 +97,13 @@ function removeTask() {
   hideTaskContainer();
 }
 
+function removeAllTasksFromArray() {
+  if (event.target.className === 'clear-btn') {
+      tasks.splice(0, tasks.length);
+  }
+}
+
+
 // REMOVES EMPTY CONTAINER WHERE TASKS ARE ADDED ON THE
 // PAGE, IF NO TASKS ARE ADDED ON THE FORM
 function hideTaskContainer() {
@@ -112,6 +117,7 @@ function clearAllBtn() {
     taskHolder.innerText = '';
     clearInputField();
     hideTaskContainer();
+    removeAllTasksFromArray();
   }
 }
 
