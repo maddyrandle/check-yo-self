@@ -14,4 +14,5 @@
 - [ ] index.html
 - [ ] styles.css
 - [ ] main.js
-- [ ] Other files:
+- [ ] todo-list.js
+- [ ] task.js
