@@ -11,13 +11,7 @@ class ToDoList {
   }
 
   deleteFromStorage() {
-    // var listId = parseInt(event.target.closest('.close-img-btn').id);
-    // var findListId =
-    // for (var i = 0; i < lists.length; i++) {
-    //   if (lists[i].id === listId) {
-    //     return lists[i];
-    //   }
-    // }
+
   }
 
   updateToDo() {
