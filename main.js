@@ -25,6 +25,7 @@ function collectFormInfo() {
   }
 }
 
+
 function createNewTask(item, complete) {
   var task = new Task(item, complete);
   tasks.push(task);
