@@ -5,6 +5,7 @@ var taskInputContainer = document.querySelector('.task-input-wrapper');
 var formContainer = document.querySelector('.form-wrapper');
 var tasks = [];
 var lists = [];
+var checklistHTML;
 
 taskInput.addEventListener('keyup', enableAndDisableButtons);
 titleInput.addEventListener('keyup', enableAndDisableButtons);
