@@ -20,6 +20,7 @@ class ToDoList {
 
   updateTask() {
     // should update a task’s content and if it has been completed
+    localStorage.setItem('active style', JSON.stringify(activeStyle));
   }
 
   addNewList(newList) {
@@ -36,19 +37,24 @@ class ToDoList {
       </main>
       <footer class="card-footer regular-card-footer">
         <div class="img-wrapper">
+        <button class="urgent-btn">
           <img class="img-btn" src="./assets/urgent.svg" alt="lightening bolt">
           <img class="img-btn hidden" src="./assets/urgent-active.svg" alt=" red lightening bolt">
           <p class="regular-footer-font">URGENT</p>
+        </button>
         </div>
         <div class="img-wrapper">
-          <img class="img-btn" src="./assets/delete.svg" alt="close icon">
-          <img class="img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
-          <p class="regular-footer-font">DELETE</p>
+          <button class="delete-btn">
+            <img class="img-btn delete" src="./assets/delete.svg" alt="close icon">
+            <img class="img-btn delete hidden" src="./assets/delete-active.svg" alt="close icon">
+            <p class="regular-footer-font">DELETE</p>
+          </button>
         </div>
       </footer>
     </div>
     `);
     addTasksToList();
+    tasks = [];
   }
 }
 

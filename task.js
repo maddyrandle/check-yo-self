@@ -13,6 +13,7 @@ class Task {
       <p class="task-text new-task-font">${newTask.item}</p>
     </section>
     `);
+    
   }
 }
 
