@@ -291,20 +291,9 @@ button:hover,
   flex-direction: column;
 }
 
-/* .single-task-wrapper, */
 .new-task-wrapper {
   display: flex;
   margin: 4%;
-}
-
-.single-task-wrapper {
-  display: grid;
-  font-size: 20px;
-  grid-template-areas:
-  "button item";
-  grid-template-columns: 1fr 10fr;
-  margin: 0 1% 0 4%;
-  padding: 2% 0 0;
 }
 
 .task-text {
@@ -342,7 +331,6 @@ button:hover,
 }
 
 .delete-btn,
-.checkbox-btn,
 .urgent-btn {
   background: none;
 }
@@ -382,4 +370,64 @@ button:hover,
 .hidden {
   display: none;
 }
+
+/* OLD CHECKBOX STYLING */
+.single-task-wrapper {
+  display: grid;
+  font-size: 20px;
+  grid-template-areas:
+  "button item";
+  grid-template-columns: 1fr 10fr;
+  margin: 0 1% 0 4%;
+  padding: 2% 0 0;
+
+}
+
+.checkbox-img-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  /* height: 100vh; */
+}
+
+.delete-btn,
+.urgent-btn {
+  background: none;
+}
+
+/* NEW STYLING */
+input[type = checkbox] {
+  display: none;
+}
+
+input + label {
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  transition: .1s all;
+  cursor: pointer;
+}
+
+input + label:hover {
+  transform: scale(.95);
+}
+
+input + label:after {
+  content: url(./assets/checkbox.svg);
+}
+
+input:checked + label {
+  transform: scale(1.1);
+}
+
+input:checked + label:hover {
+  transform: scale(1.05);
+}
+
+input:checked + label:after {
+  content: url(./assets/checkbox-active.svg);
+}
+
 /*  */
