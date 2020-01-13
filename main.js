@@ -26,6 +26,8 @@ function showTaskComplete() {
   tasksArray = lists[i].tasks;
     for (var j = 0; j < tasksArray.length; j++) {
       if (tasksArray[j].id === eventId) {
+        tasksArray[j].completed = true;
+        console.log(lists)
         event.target.classList.add('hidden');
         active.classList.remove('hidden');
         text.classList.add('task-text-active');
