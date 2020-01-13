@@ -20,10 +20,11 @@ class ToDoList {
 
   updateTask() {
     // should update a task’s content and if it has been completed
-    localStorage.setItem('active style', JSON.stringify(activeStyle));
+    // localStorage.setItem('active style', JSON.stringify(activeStyle));
   }
 
   addNewList(newList) {
+    var checkboxId = Date.now().toString(36);
     noListMsg.classList.add('hidden');
     leftListHolder.classList.remove('hidden');
     leftListHolder.insertAdjacentHTML('afterbegin', `
@@ -36,14 +37,16 @@ class ToDoList {
         </section>
       </main>
       <footer class="card-footer regular-card-footer">
-        <div class="img-wrapper">
-        <button class="urgent-btn">
-          <img class="img-btn" src="./assets/urgent.svg" alt="lightening bolt">
-          <img class="img-btn hidden" src="./assets/urgent-active.svg" alt=" red lightening bolt">
+
+        <div class="urgent-img-wrapper img-wrapper">
+
+          <input id="${checkboxId}" type="checkbox"/>
+          <label for="${checkboxId}"></label>
           <p class="regular-footer-font">URGENT</p>
-        </button>
+
         </div>
-        <div class="img-wrapper">
+
+        <div class="delete-img-wrapper img-wrapper">
           <button class="delete-btn">
             <img class="img-btn delete" src="./assets/delete.svg" alt="close icon">
             <img class="img-btn delete hidden" src="./assets/delete-active.svg" alt="close icon">
