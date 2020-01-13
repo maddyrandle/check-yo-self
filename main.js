@@ -31,8 +31,6 @@ function createNewTask(item, complete) {
   task.addNewTask(task);
   taskInput.value = '';
   enableAndDisableButtons();
-  // task.saveTaskToStorage(tasks);
-
 }
 
 // COLLECTS TITLE INFO FROM FORM AND BEGINS PROCESS OF
@@ -53,6 +51,7 @@ function makeList(title, tasks, urgent) {
   clearInputField();
   enableAndDisableButtons();
   list.saveToStorage(lists);
+  // tasks.splice(0, tasks.length);
   // console.log(event.target.parentNode.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.id)
 }
 
@@ -61,32 +60,22 @@ function pageLoad() {
   if ('list' in localStorage) {
     checkLocalStorage();
   }
-  // if ('task' in localStorage) {
-  //   parseTaskLocalStorage();
-  // }
 }
 
 // GETS KEY:LIST FROM LOCALSTORAGE AND TAKES IT OUT OF STRING
-function parseListLocalStorage() {
+function parseLocalStorage() {
   var getListItem = localStorage.getItem('list');
-  var storedListArray = JSON.parse(getListItem);
-  return storedListArray;
+  var storedArray = JSON.parse(getListItem);
+  return storedArray;
 }
-
-// function parseTaskLocalStorage() {
-//   var getTaskItem = localStorage.getItem('task');
-//   var storedTaskArray = JSON.parse(getTaskItem);
-//   for (var i = 0; i < storedTaskArray.length; i++) {
-//     createNewTask(storedTaskArray[i].item, storedTaskArray[i].complete);
-//   }
-// }
 
 // LOOPS THROUGH ARRAY OF TODO LISTS IN LOCALSTORAGE AND
 // MAKES A CARD WITH THE STORED PROPERTIES
 function checkLocalStorage() {
-  var storedListArray = parseListLocalStorage();
-  for (var i = 0; i < storedListArray.length; i++) {
-    makeList(storedListArray[i].title, storedListArray[i].tasks, storedListArray[i].urgent);
+  var storedArray = parseLocalStorage();
+  for (var i = 0; i < storedArray.length; i++) {
+    storedArray[i].tasks.forEach(t => tasks.push(t));
+    makeList(storedArray[i].title, storedArray[i].tasks, storedArray[i].urgent);
   }
 }
 
@@ -117,7 +106,7 @@ function removeList() {
   var i = lists.indexOf(listToRemove);
   if (event.target.className === 'img-btn') {
     lists.splice(i, 1);
-    event.target.closest('.card').remove();
+    event.target.classList.contains('.card').remove();
     listToRemove.saveToStorage(lists);
     tasks.splice(0, tasks.length);
     noListMsg.classList.remove('hidden');
@@ -143,7 +132,6 @@ function removeAllTasksFromArray() {
       tasks.splice(0, tasks.length);
   }
 }
-
 
 // REMOVES EMPTY CONTAINER WHERE TASKS ARE ADDED ON THE
 // PAGE, IF NO TASKS ARE ADDED ON THE FORM
@@ -186,7 +174,6 @@ function clearInputField() {
   var inputField = document.querySelector('form');
   inputField.reset();
 }
-
 
 function addTasksToList() {
   var checklistHTML;
