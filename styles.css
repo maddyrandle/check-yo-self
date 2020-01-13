@@ -385,8 +385,6 @@ button:hover,
 .checkbox-img-wrapper {
   display: flex;
   justify-content: flex-start;
-  /* align-items: center; */
-  /* height: 100vh; */
 }
 
 .delete-btn,
@@ -427,6 +425,14 @@ input:checked + label:hover {
 
 input:checked + label:after {
   content: url(./assets/checkbox-active.svg);
+}
+
+.urgent-img-wrapper input + label {
+  content: url(./assets/urgent.svg);
+}
+
+.urgent-img-wrapper input:checked + label {
+  content: url(./assets/urgent-active.svg);
 }
 
 /*  */
