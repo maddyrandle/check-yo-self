@@ -20,6 +20,7 @@ class ToDoList {
 
   updateTask() {
     // should update a task’s content and if it has been completed
+    localStorage.setItem('active style', JSON.stringify(activeStyle));
   }
 
   addNewList(newList) {
