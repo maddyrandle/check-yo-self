@@ -95,10 +95,10 @@ function pageLoad() {
 }
 
 // GETS KEY:LIST FROM LOCALSTORAGE AND TAKES IT OUT OF STRING
-function parseListLocalStorage() {
+function parseLocalStorage() {
   var getListItem = localStorage.getItem('list');
-  var storedListArray = JSON.parse(getListItem);
-  return storedListArray;
+  var storedArray = JSON.parse(getListItem);
+  return storedArray;
 }
 
 // LOOPS THROUGH ARRAY OF TODO LISTS IN LOCALSTORAGE AND
@@ -139,7 +139,7 @@ function removeList() {
   var i = lists.indexOf(listToRemove);
   if (event.target.parentNode.classList.contains('delete-btn')) {
     lists.splice(i, 1);
-    event.target.closest('.card').remove();
+    event.target.classList.contains('.card').remove();
     listToRemove.saveToStorage(lists);
   }
 }
@@ -204,7 +204,6 @@ function clearInputField() {
   var inputField = document.querySelector('form');
   inputField.reset();
 }
-
 
 function addTasksToList() {
   var taskItem;

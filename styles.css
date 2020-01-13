@@ -165,14 +165,12 @@ form {
 #title-input {
   border-radius: 4px;
   margin-bottom: 9%;
-  /* height: 26.15%; */
   width: 92%;
 }
 
 .task-input-wrapper {
   align-items: center;
   display: flex;
-  /* height: 26.15%; */
   justify-content: center;
   margin-top: 1%;
   width: 100%;
@@ -205,6 +203,7 @@ button,
 }
 
 button:hover,
+.img-btn:hover,
 /* .img-wrapper:hover, */
 .img-btn:hover,
 /* .checkbox-img-wrapper:hover, */
