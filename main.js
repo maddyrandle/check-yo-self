@@ -3,6 +3,7 @@ var taskInput = document.querySelector('#task-input');
 var taskHolder = document.querySelector('.task-form-container');
 var taskInputContainer = document.querySelector('.task-input-wrapper');
 var formContainer = document.querySelector('.form-wrapper');
+var leftListHolder = document.querySelector('.left-side');
 var tasks = [];
 var lists = [];
 
@@ -11,6 +12,7 @@ titleInput.addEventListener('keyup', enableAndDisableButtons);
 taskHolder.addEventListener('click', removeTask);
 taskInputContainer.addEventListener('click', collectTaskInfo);
 formContainer.addEventListener('click', collectFormInfo);
+leftListHolder.addEventListener('click', removeList);
 window.addEventListener('load', pageLoad);
 
 // COLLECTS TASK INFO FROM THE FORM AND BEGINS PROCESS
@@ -76,7 +78,7 @@ function checkLocalStorage() {
 
 // LOOPS THROUGH TASK ARRAY AND MATCHES IT TO THE ID OF
 // THE CLOSEST TASK TO THE X BUTTON CLICKED
-function findId() {
+function findTaskId() {
   var taskId = parseInt(event.target.closest('.close-img-btn').id);
   for (var i = 0; i < tasks.length; i++) {
     if (tasks[i].id === taskId) {
@@ -85,18 +87,40 @@ function findId() {
   }
 }
 
+function findListId() {
+  var listId = parseInt(event.target.closest('.img-btn').parentNode.parentNode.parentNode.id);
+  for (var i = 0; i < lists.length; i++) {
+    if (lists[i].id === listId) {
+      return lists[i];
+    }
+  }
+}
+
+// REMOVES LIST FROM ARRAY IN LOCALSTORAGE
+// REMOVES LIST FROM THE FORM ON THE PAGE
+function removeList() {
+  var listToRemove = findListId(event);
+  var i = lists.indexOf(listToRemove);
+  if (event.target.className === 'img-btn') {
+    lists.splice(i, 1);
+    event.target.closest('.card').remove();
+    listToRemove.saveToStorage(lists);
+  }
+}
+
 // REMOVES TASK FROM ARRAY IN LOCALSTORAGE
 // REMOVES TASK FROM THE FORM ON THE PAGE
 function removeTask() {
+  var taskToRemove = findTaskId(event);
+  var i = tasks.indexOf(taskToRemove);
   if (event.target.className === 'close-img-btn') {
-    var taskToRemove = findId(event);
-    var i = tasks.indexOf(taskToRemove);
     tasks.splice(i, 1);
     event.target.closest('.new-task-wrapper').remove();
   }
   hideTaskContainer();
 }
 
+// REMOVES ALL TASKS FROM ARRAY WHEN CLEAR BUTTON IS CLICKED
 function removeAllTasksFromArray() {
   if (event.target.className === 'clear-btn') {
       tasks.splice(0, tasks.length);
