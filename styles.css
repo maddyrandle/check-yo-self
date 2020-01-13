@@ -321,6 +321,7 @@ button:hover,
 
 .regular-footer-font {
   color: #3C6577;
+  font-size: 22px;
 }
 
 .checkbox-img-wrapper {
@@ -400,9 +401,7 @@ input[type = checkbox] {
 input + label {
   font-size: 1.2rem;
   width: 2rem;
-  height: 2rem;
-  justify-content: center;
-  align-items: center;
+  height: 3rem;
   transition: .1s all;
   cursor: pointer;
 }
