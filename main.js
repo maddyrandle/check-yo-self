@@ -104,7 +104,7 @@ function parseLocalStorage() {
 // LOOPS THROUGH ARRAY OF TODO LISTS IN LOCALSTORAGE AND
 // MAKES A CARD WITH THE STORED PROPERTIES
 function checkLocalStorage() {
-  var storedListArray = parseListLocalStorage();
+  var storedListArray = parseLocalStorage();
   for (var i = 0; i < storedListArray.length; i++) {
     storedListArray[i].tasks.forEach(j => tasks.push(j));
     makeList(storedListArray[i].title, storedListArray[i].tasks, storedListArray[i].urgent);
@@ -139,7 +139,7 @@ function removeList() {
   var i = lists.indexOf(listToRemove);
   if (event.target.parentNode.classList.contains('delete-btn')) {
     lists.splice(i, 1);
-    event.target.classList.contains('.card').remove();
+    event.target.closest('.card').remove();
     listToRemove.saveToStorage(lists);
   }
 }
