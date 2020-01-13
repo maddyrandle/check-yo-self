@@ -13,8 +13,26 @@ titleInput.addEventListener('keyup', enableAndDisableButtons);
 taskHolder.addEventListener('click', removeTask);
 taskInputContainer.addEventListener('click', collectTaskInfo);
 formContainer.addEventListener('click', collectFormInfo);
-leftListHolder.addEventListener('click', removeList);
+leftListHolder.addEventListener('click', showTaskComplete);
 window.addEventListener('load', pageLoad);
+
+function showTaskComplete() {
+  var tasksArray;
+  var eventId = parseInt(event.target.getAttribute('id'));
+  var inactive = document.querySelector('.inactive-checkbox');
+  var active = document.querySelector('.active-checkbox');
+  var text = document.querySelector('.task-text-p');
+  for (var i = 0; i < lists.length; i++) {
+  tasksArray = lists[i].tasks;
+    for (var j = 0; j < tasksArray.length; j++) {
+      if (tasksArray[j].id === eventId) {
+        event.target.classList.add('hidden');
+        active.classList.remove('hidden');
+        text.classList.add('task-text-active');
+      }
+    }
+  }
+}
 
 // COLLECTS TASK INFO FROM THE FORM AND BEGINS PROCESS
 // OF INSTANTIATING A NEW TASK
@@ -72,7 +90,7 @@ function parseListLocalStorage() {
 function checkLocalStorage() {
   var storedListArray = parseListLocalStorage();
   for (var i = 0; i < storedListArray.length; i++) {
-    storedListArray[i].tasks.forEach(t => tasks.push(t));
+    storedListArray[i].tasks.forEach(j => tasks.push(j));
     makeList(storedListArray[i].title, storedListArray[i].tasks, storedListArray[i].urgent);
   }
 }
@@ -88,31 +106,29 @@ function findTaskId() {
   }
 }
 
-function findListId() {
-  var findCard = event.target.closest('.card');
-  var listId = parseInt(findCard.id);
-  for (var i = 0; i < lists.length; i++) {
-    if (lists[i].id === listId) {
-      return lists[i];
-    }
-  }
-}
+// function findListId() {
+//   var findCard = event.target.closest('.card');
+//   var listId = parseInt(findCard.id);
+//   for (var i = 0; i < lists.length; i++) {
+//     if (lists[i].id === listId) {
+//       return lists[i];
+//     }
+//   }
+// }
 
 // REMOVES LIST FROM ARRAY IN LOCALSTORAGE
 // REMOVES LIST FROM THE FORM ON THE PAGE
-function removeList() {
-  console.log('hey')
-  var listToRemove = findListId(event);
-  var i = lists.indexOf(listToRemove);
-  if (event.target.parentNode.classList.contains('delete-btn')) {
-    lists.splice(i, 1);
-    event.target.closest('.card').remove();
-    listToRemove.saveToStorage(lists);
-    // tasks.splice(0, tasks.length);
-    // noListMsg.classList.remove('hidden');
-    // leftListHolder.classList.add('hidden');
-  }
-}
+
+// function removeList() {
+//   console.log('hey')
+//   var listToRemove = findListId(event);
+//   var i = lists.indexOf(listToRemove);
+//   if (event.target.parentNode.classList.contains('delete-btn')) {
+//     lists.splice(i, 1);
+//     event.target.closest('.card').remove();
+//     listToRemove.saveToStorage(lists);
+//   }
+// }
 
 // REMOVES TASK FROM ARRAY IN LOCALSTORAGE
 // REMOVES TASK FROM THE FORM ON THE PAGE
