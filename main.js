@@ -7,34 +7,48 @@ var leftListHolder = document.querySelector('.left-side');
 var noListMsg = document.querySelector('.make-list-msg');
 var tasks = [];
 var lists = [];
+var list;
+var activeStyle;
 
 taskInput.addEventListener('keyup', enableAndDisableButtons);
 titleInput.addEventListener('keyup', enableAndDisableButtons);
 taskHolder.addEventListener('click', removeTask);
 taskInputContainer.addEventListener('click', collectTaskInfo);
 formContainer.addEventListener('click', collectFormInfo);
-leftListHolder.addEventListener('click', showTaskComplete);
+leftListHolder.addEventListener('click', removeList);
 window.addEventListener('load', pageLoad);
 
-function showTaskComplete() {
-  var tasksArray;
-  var eventId = parseInt(event.target.getAttribute('id'));
-  var inactive = document.querySelector('.inactive-checkbox');
-  var active = document.querySelector('.active-checkbox');
-  var text = document.querySelector('.task-text-p');
-  for (var i = 0; i < lists.length; i++) {
-  tasksArray = lists[i].tasks;
-    for (var j = 0; j < tasksArray.length; j++) {
-      if (tasksArray[j].id === eventId) {
-        tasksArray[j].completed = true;
-        console.log(lists)
-        event.target.classList.add('hidden');
-        active.classList.remove('hidden');
-        text.classList.add('task-text-active');
-      }
-    }
-  }
-}
+
+
+
+// function showTaskComplete() {
+//   var tasksArray;
+//   var eventId = parseInt(event.target.getAttribute('id'));
+//   var inactive = document.querySelector('.inactive-checkbox');
+//   var active = document.querySelector('.active-checkbox');
+//
+//   for (var i = 0; i < lists.length; i++) {
+//
+//     tasksArray = lists[i].tasks;
+//
+//     for (var j = 0; j < tasksArray.length; j++) {
+//       if (tasksArray[j].id === eventId) {
+//         tasksArray[j].completed = true;
+//         event.target.classList.add('hidden');
+//         active.classList.remove('hidden');
+//         styleActiveTask();
+//       }
+//     }
+//   }
+//
+//   list.saveToStorage(lists);
+// }
+//
+// function styleActiveTask() {
+//   var text = document.querySelector('.task-text-p');
+//   activeStyle = text.classList.add('task-text-active');
+//
+// }
 
 // COLLECTS TASK INFO FROM THE FORM AND BEGINS PROCESS
 // OF INSTANTIATING A NEW TASK
@@ -65,7 +79,7 @@ function collectFormInfo() {
 
 // INSTANTIATES A NEW TODO LIST
 function makeList(title, tasks, urgent) {
-  var list = new ToDoList(title, tasks, urgent);
+  list = new ToDoList(title, tasks, urgent);
   lists.push(list);
   list.addNewList(list);
   clearInputField();
@@ -108,29 +122,27 @@ function findTaskId() {
   }
 }
 
-// function findListId() {
-//   var findCard = event.target.closest('.card');
-//   var listId = parseInt(findCard.id);
-//   for (var i = 0; i < lists.length; i++) {
-//     if (lists[i].id === listId) {
-//       return lists[i];
-//     }
-//   }
-// }
+function findListId() {
+  var findCard = event.target.closest('.card');
+  var listId = parseInt(findCard.id);
+  for (var i = 0; i < lists.length; i++) {
+    if (lists[i].id === listId) {
+      return lists[i];
+    }
+  }
+}
 
 // REMOVES LIST FROM ARRAY IN LOCALSTORAGE
 // REMOVES LIST FROM THE FORM ON THE PAGE
-
-// function removeList() {
-//   console.log('hey')
-//   var listToRemove = findListId(event);
-//   var i = lists.indexOf(listToRemove);
-//   if (event.target.parentNode.classList.contains('delete-btn')) {
-//     lists.splice(i, 1);
-//     event.target.closest('.card').remove();
-//     listToRemove.saveToStorage(lists);
-//   }
-// }
+function removeList() {
+  var listToRemove = findListId(event);
+  var i = lists.indexOf(listToRemove);
+  if (event.target.parentNode.classList.contains('delete-btn')) {
+    lists.splice(i, 1);
+    event.target.closest('.card').remove();
+    listToRemove.saveToStorage(lists);
+  }
+}
 
 // REMOVES TASK FROM ARRAY IN LOCALSTORAGE
 // REMOVES TASK FROM THE FORM ON THE PAGE
@@ -150,7 +162,6 @@ function removeAllTasksFromArray() {
       tasks.splice(0, tasks.length);
   }
 }
-
 
 // REMOVES EMPTY CONTAINER WHERE TASKS ARE ADDED ON THE
 // PAGE, IF NO TASKS ARE ADDED ON THE FORM
@@ -205,15 +216,14 @@ function addTasksToList() {
     taskHolder.insertAdjacentHTML('beforeend', `
     <div class="single-task-wrapper">
       <div class="checkbox-img-wrapper">
-        <button class="checkbox-btn">
-          <img id="${taskId}" class="inactive-checkbox" src="./assets/checkbox.svg" alt="empty circle check box">
-          <img class="active-checkbox hidden" src="./assets/checkbox-active.svg" alt="circle check box checked">
-        </button>
+        <input id="${taskId}" type="checkbox"/>
+        <label for="${taskId}"></label>
       </div>
       <p class="task-text-p">${taskItem}</p>
     </div>
     `);
+    var completeTask = document.getElementById(`${taskId}`);
+    completeTask.checked = tasks[i].completed
+    // ON CLICK MAKE TASK COMPLETED TRUE
   }
 }
-
-//
