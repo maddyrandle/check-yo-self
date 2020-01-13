@@ -23,8 +23,6 @@ class ToDoList {
   }
 
   addNewList(newList) {
-    var noListMsg = document.querySelector('.make-list-msg');
-    var leftListHolder = document.querySelector('.left-side');
     noListMsg.classList.add('hidden');
     leftListHolder.classList.remove('hidden');
     leftListHolder.insertAdjacentHTML('afterbegin', `
@@ -38,12 +36,13 @@ class ToDoList {
       </main>
       <footer class="card-footer regular-card-footer">
         <div class="img-wrapper">
-          <img class="img-btn urgent-img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+          <img class="img-btn" src="./assets/urgent.svg" alt="lightening bolt">
+          <img class="img-btn hidden" src="./assets/urgent-active.svg" alt=" red lightening bolt">
           <p class="regular-footer-font">URGENT</p>
         </div>
         <div class="img-wrapper">
-          <img class="img-btn close-img-btn" src="./assets/delete.svg" alt="close icon">
-          <img class="close-img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
+          <img class="img-btn" src="./assets/delete.svg" alt="close icon">
+          <img class="img-btn hidden" src="./assets/delete-active.svg" alt="close icon">
           <p class="regular-footer-font">DELETE</p>
         </div>
       </footer>

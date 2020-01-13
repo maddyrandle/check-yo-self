@@ -5,6 +5,10 @@ class Task {
     this.completed = complete;
   }
 
+  // saveTaskToStorage() {
+  //   localStorage.setItem('task', JSON.stringify(tasks));
+  // }
+
   addNewTask(newTask) {
     taskHolder.classList.remove('hidden');
     taskHolder.insertAdjacentHTML('beforeend', `
