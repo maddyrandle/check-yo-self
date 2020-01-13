@@ -31,8 +31,6 @@ function createNewTask(item, complete) {
   task.addNewTask(task);
   taskInput.value = '';
   enableAndDisableButtons();
-  // task.saveTaskToStorage(tasks);
-
 }
 
 // COLLECTS TITLE INFO FROM FORM AND BEGINS PROCESS OF
@@ -53,7 +51,6 @@ function makeList(title, tasks, urgent) {
   clearInputField();
   enableAndDisableButtons();
   list.saveToStorage(lists);
-  // console.log(event.target.parentNode.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.id)
 }
 
 // STARTS PROCESS OF BRINGING BACK KEY:LIST FROM LOCALSTORAGE
@@ -61,9 +58,6 @@ function pageLoad() {
   if ('list' in localStorage) {
     checkLocalStorage();
   }
-  // if ('task' in localStorage) {
-  //   parseTaskLocalStorage();
-  // }
 }
 
 // GETS KEY:LIST FROM LOCALSTORAGE AND TAKES IT OUT OF STRING
@@ -73,19 +67,12 @@ function parseListLocalStorage() {
   return storedListArray;
 }
 
-// function parseTaskLocalStorage() {
-//   var getTaskItem = localStorage.getItem('task');
-//   var storedTaskArray = JSON.parse(getTaskItem);
-//   for (var i = 0; i < storedTaskArray.length; i++) {
-//     createNewTask(storedTaskArray[i].item, storedTaskArray[i].complete);
-//   }
-// }
-
 // LOOPS THROUGH ARRAY OF TODO LISTS IN LOCALSTORAGE AND
 // MAKES A CARD WITH THE STORED PROPERTIES
 function checkLocalStorage() {
   var storedListArray = parseListLocalStorage();
   for (var i = 0; i < storedListArray.length; i++) {
+    storedListArray[i].tasks.forEach(t => tasks.push(t));
     makeList(storedListArray[i].title, storedListArray[i].tasks, storedListArray[i].urgent);
   }
 }
@@ -102,7 +89,8 @@ function findTaskId() {
 }
 
 function findListId() {
-  var listId = parseInt(event.target.closest('.img-btn').parentNode.parentNode.parentNode.id);
+  var findCard = event.target.closest('.card');
+  var listId = parseInt(findCard.id);
   for (var i = 0; i < lists.length; i++) {
     if (lists[i].id === listId) {
       return lists[i];
@@ -113,15 +101,16 @@ function findListId() {
 // REMOVES LIST FROM ARRAY IN LOCALSTORAGE
 // REMOVES LIST FROM THE FORM ON THE PAGE
 function removeList() {
+  console.log('hey')
   var listToRemove = findListId(event);
   var i = lists.indexOf(listToRemove);
-  if (event.target.className === 'img-btn') {
+  if (event.target.parentNode.classList.contains('delete-btn')) {
     lists.splice(i, 1);
     event.target.closest('.card').remove();
     listToRemove.saveToStorage(lists);
-    tasks.splice(0, tasks.length);
-    noListMsg.classList.remove('hidden');
-    leftListHolder.classList.add('hidden');
+    // tasks.splice(0, tasks.length);
+    // noListMsg.classList.remove('hidden');
+    // leftListHolder.classList.add('hidden');
   }
 }
 
@@ -189,17 +178,21 @@ function clearInputField() {
 
 
 function addTasksToList() {
-  var checklistHTML;
+  var taskItem;
+  var taskId;
   var taskHolder = document.querySelector('.all-tasks');
   for (var i = 0; i < tasks.length; i++) {
-    checklistHTML = tasks[i].item;
+    taskItem = tasks[i].item;
+    taskId = tasks[i].id;
     taskHolder.insertAdjacentHTML('beforeend', `
     <div class="single-task-wrapper">
       <div class="checkbox-img-wrapper">
-        <img class="checkbox-img" src="./assets/checkbox.svg" alt="empty circle check box">
-        <img class="checkbox-img-active hidden" src="./assets/checkbox-active.svg" alt="circle check box checked">
-      </div
-      <p class="task-text-p">${checklistHTML}</p>
+        <button class="checkbox-btn">
+          <img id="${taskId}" class="inactive-checkbox" src="./assets/checkbox.svg" alt="empty circle check box">
+          <img class="active-checkbox hidden" src="./assets/checkbox-active.svg" alt="circle check box checked">
+        </button>
+      </div>
+      <p class="task-text-p">${taskItem}</p>
     </div>
     `);
   }

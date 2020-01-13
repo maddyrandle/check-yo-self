@@ -237,7 +237,7 @@ button:hover,
 }
 
 /* GRID POSITON ON CARDS */
-.card{
+.card {
   display: grid;
   grid-template-areas:
   "top"
@@ -339,6 +339,12 @@ button:hover,
   margin-right: 4%;
   width: 28px;
   grid-area: button;
+}
+
+.delete-btn,
+.checkbox-btn,
+.urgent-btn {
+  background: none;
 }
 
 /* ACTIVE CARD STYLING */
