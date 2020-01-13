@@ -119,7 +119,9 @@ function removeList() {
     lists.splice(i, 1);
     event.target.closest('.card').remove();
     listToRemove.saveToStorage(lists);
+    tasks.splice(0, tasks.length);
     noListMsg.classList.remove('hidden');
+    leftListHolder.classList.add('hidden');
   }
 }
 
