@@ -5,10 +5,6 @@ class Task {
     this.completed = complete;
   }
 
-  // saveTaskToStorage() {
-  //   localStorage.setItem('task', JSON.stringify(tasks));
-  // }
-
   addNewTask(newTask) {
     taskHolder.classList.remove('hidden');
     taskHolder.insertAdjacentHTML('beforeend', `
@@ -17,6 +13,7 @@ class Task {
       <p class="task-text new-task-font">${newTask.item}</p>
     </section>
     `);
+    
   }
 }
 
