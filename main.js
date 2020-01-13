@@ -4,6 +4,7 @@ var taskHolder = document.querySelector('.task-form-container');
 var taskInputContainer = document.querySelector('.task-input-wrapper');
 var formContainer = document.querySelector('.form-wrapper');
 var leftListHolder = document.querySelector('.left-side');
+var noListMsg = document.querySelector('.make-list-msg');
 var tasks = [];
 var lists = [];
 
@@ -30,6 +31,8 @@ function createNewTask(item, complete) {
   task.addNewTask(task);
   taskInput.value = '';
   enableAndDisableButtons();
+  // task.saveTaskToStorage(tasks);
+
 }
 
 // COLLECTS TITLE INFO FROM FORM AND BEGINS PROCESS OF
@@ -56,24 +59,35 @@ function makeList(title, tasks, urgent) {
 // STARTS PROCESS OF BRINGING BACK KEY:LIST FROM LOCALSTORAGE
 function pageLoad() {
   if ('list' in localStorage) {
-   checkLocalStorage();
+    checkLocalStorage();
   }
+  // if ('task' in localStorage) {
+  //   parseTaskLocalStorage();
+  // }
 }
 
 // GETS KEY:LIST FROM LOCALSTORAGE AND TAKES IT OUT OF STRING
-function parseLocalStorage() {
-  var getItem = localStorage.getItem('list');
-  var storageArray = JSON.parse(getItem);
-  return storageArray;
+function parseListLocalStorage() {
+  var getListItem = localStorage.getItem('list');
+  var storedListArray = JSON.parse(getListItem);
+  return storedListArray;
 }
+
+// function parseTaskLocalStorage() {
+//   var getTaskItem = localStorage.getItem('task');
+//   var storedTaskArray = JSON.parse(getTaskItem);
+//   for (var i = 0; i < storedTaskArray.length; i++) {
+//     createNewTask(storedTaskArray[i].item, storedTaskArray[i].complete);
+//   }
+// }
 
 // LOOPS THROUGH ARRAY OF TODO LISTS IN LOCALSTORAGE AND
 // MAKES A CARD WITH THE STORED PROPERTIES
 function checkLocalStorage() {
-  var storageArray = parseLocalStorage();
-    for (var i = 0; i < storageArray.length; i++) {
-      makeList(storageArray[i].title, storageArray[i].tasks, storageArray[i].urgent);
-    }
+  var storedListArray = parseListLocalStorage();
+  for (var i = 0; i < storedListArray.length; i++) {
+    makeList(storedListArray[i].title, storedListArray[i].tasks, storedListArray[i].urgent);
+  }
 }
 
 // LOOPS THROUGH TASK ARRAY AND MATCHES IT TO THE ID OF
@@ -105,6 +119,7 @@ function removeList() {
     lists.splice(i, 1);
     event.target.closest('.card').remove();
     listToRemove.saveToStorage(lists);
+    noListMsg.classList.remove('hidden');
   }
 }
 

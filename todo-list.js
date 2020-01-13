@@ -23,7 +23,6 @@ class ToDoList {
   }
 
   addNewList(newList) {
-    var noListMsg = document.querySelector('.make-list-msg');
     noListMsg.classList.add('hidden');
     leftListHolder.classList.remove('hidden');
     leftListHolder.insertAdjacentHTML('afterbegin', `
