@@ -11,7 +11,7 @@ var completedTaskCSS;
 
 formInputs.addEventListener('keyup', disableBtns);
 tasksWrapperOnForm.addEventListener('click', removeTask);
-toDoListsWrapper.addEventListener('click', removeList);
+toDoListsWrapper.addEventListener('click', removeToDoList);
 formWrapper.addEventListener('click', targetNewTaskDescription);
 window.addEventListener('load', pageLoad);
 
@@ -198,7 +198,7 @@ function matchListId() {
   }
 }
 
-function removeList() {
+function removeToDoList() {
   var listToRemove = matchListId(event);
   var i = toDosArray.indexOf(listToRemove);
   designateTaskCompleted();
