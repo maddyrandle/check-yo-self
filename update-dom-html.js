@@ -33,7 +33,7 @@ function displayNewToDoList(toDoList) {
     <footer class="card-footer regular-card-footer">
       <div class="urgent-img-wrapper img-wrapper">
         <input id="${checkboxId}" type="checkbox"/>
-        <label for="${checkboxId}"></label>
+        <label for="${checkboxId}" class="urgent-btn"></label>
         <p class="regular-footer-font">URGENT</p>
       </div>
       <div class="delete-img-wrapper img-wrapper">
@@ -81,20 +81,31 @@ function displayTasksOnToDoList() {
   }
 }
 
-function showUrgentStyling() {
-  var urgentStyle = event.target.nextElementSibling;
-  var urgentCard = event.target.closest('.card');
-  var urgentHeader = document.querySelector('.card-title');
-  var urgentFooter = document.querySelector('.card-footer');
-  event.target.classList.contains('.card');
-  .add('urgent-card');
-  event.target.urgentHeader.classList
-  .add('urgent-card-title');
-  event.target.urgentStyle.classList
-  .add('urgent-footer-font');
-  event.target.urgentFooter.classList
-  .add('urgent-card-footer');
+// function showUrgentStyling() {
+//   var urgentStyle = event.target.nextElementSibling;
+//   var urgentCard = event.target.closest('.card');
+//   var urgentHeader = document.querySelector('.card-title');
+//   var urgentFooter = document.querySelector('.card-footer');
+//   event.target.classList.contains('.card');
+//   .add('urgent-card');
+//   event.target.urgentHeader.classList
+//   .add('urgent-card-title');
+//   event.target.urgentStyle.classList
+//   .add('urgent-footer-font');
+//   event.target.urgentFooter.classList
+//   .add('urgent-card-footer');
+//
+// }
 
+function showUrgentStyling() {
+  var card = event.target.closest('.card');
+  var urgentBtn = card.querySelector('.urgent-btn');
+
+  for (var i = 0; i < allToDoCards.length; i++) {
+    console.log(allToDoCards[i].urgent);
+
+    allToDoCards[i].urgent = !allToDoCards[i].urgent;
+  }
 }
 
 //
