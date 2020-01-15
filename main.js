@@ -4,14 +4,12 @@ var tasksWrapperOnForm = document.querySelector('.task-form-container');
 var formInputs = document.querySelector('form');
 var titleInput = document.querySelector('#title-input');
 var taskInput = document.querySelector('#task-input');
+var searchInput = document.querySelector('#search-input');
+var urgentFilterBtn = document.querySelector('.urgent-filter-btn');
 var taskObjsArray = [];
 var allToDoCards = [];
 var toDoList;
-var searchInput = document.querySelector('#search-input');
-var urgentFilterBtn = document.querySelector('.urgent-filter-btn');
-// var urgentBtn = document.querySelector('.urgent-btn');
 
-// urgentBtn.addEventListener('click', showUrgentStyling);
 urgentFilterBtn.addEventListener('click', filterUrgentCards);
 searchInput.addEventListener('keyup', searchByTitle);
 formInputs.addEventListener('keyup', disableBtns);
@@ -218,7 +216,7 @@ function searchByTitle() {
 
 function filterUrgentCards() {
   var searchedCard = document.querySelectorAll('.card');
-  // urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
+  urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
   for (var i = 0; i < allToDoCards.length; i++) {
     if (!allToDoCards[i].urgent === true) {
       searchedCard[i].classList.toggle('hidden');
