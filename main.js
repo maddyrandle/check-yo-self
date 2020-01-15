@@ -8,7 +8,9 @@ var taskObjsArray = [];
 var allToDoCards = [];
 var toDoList;
 var searchInput = document.querySelector('#search-input');
+var urgentFilterBtn = document.querySelector('.urgent-filter-btn');
 
+urgentFilterBtn.addEventListener('keyup', filterUrgentCards);
 searchInput.addEventListener('keyup', searchByTitle);
 formInputs.addEventListener('keyup', disableBtns);
 tasksWrapperOnForm.addEventListener('click', removeTask);
@@ -201,6 +203,9 @@ function searchByTitle() {
   }
 }
 
+function filterUrgentCards() {
+  
+}
 
 
 //
