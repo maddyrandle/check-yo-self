@@ -1,12 +1,12 @@
 class ToDoList {
-  constructor(title, tasks, urgent) {
-    this.id = Date.now();
+  constructor(title, tasks, urgent, id) {
+    this.id = id || createId();
     this.title = title;
     this.tasks = tasks;
-    this.urgent = urgent || false;
+    this.urgent = urgent;
   }
 
-  saveToStorage() {
+  saveToStorage(allToDoCards) {
     localStorage.setItem('ToDoList', JSON.stringify(allToDoCards));
   }
 
@@ -14,10 +14,9 @@ class ToDoList {
 
   }
 
-  updateToDo(list) {
+  updateToDo(card) {
     // should update the todo’s title and urgency
-    this.urgent = !this.urgent;
-
+    card.urgent = !card.urgent;
   }
 
   updateTask(task) {

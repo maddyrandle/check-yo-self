@@ -9,7 +9,9 @@ var allToDoCards = [];
 var toDoList;
 var searchInput = document.querySelector('#search-input');
 var urgentFilterBtn = document.querySelector('.urgent-filter-btn');
+// var urgentBtn = document.querySelector('.urgent-btn');
 
+// urgentBtn.addEventListener('click', showUrgentStyling);
 urgentFilterBtn.addEventListener('click', filterUrgentCards);
 searchInput.addEventListener('keyup', searchByTitle);
 formInputs.addEventListener('keyup', disableBtns);
@@ -19,14 +21,19 @@ formWrapper.addEventListener('click', targetNewTaskDescription);
 formWrapper.addEventListener('click', resetForm);
 window.addEventListener('load', pageLoad);
 
+function createId() {
+  return Math.random().toString(36).slice(2, 9);
+};
+
 function clickHandler() {
-  if (event.target.classList.contains('delete-btn')) {
+  if (event.target.classList.contains('urgent-btn')) {
+    showUrgentStyling();
+  }
+  else if (event.target.classList.contains('delete-btn')) {
     removeToDoList();
   } else if (event.target.classList.contains('label-btn')) {
     designateTaskCompleted();
     disableDeleteBtn();
-  } else if (event.target.classList.contains('urgent-btn')) {
-    showUrgentStyling();
   }
 }
 
@@ -36,11 +43,13 @@ function pageLoad() {
 
 function inspectLocalStorage() {
   var storedToDosArray = parseLocalStorage();
+
   for (var i = 0; i < storedToDosArray.length; i++) {
     storedToDosArray[i].tasks.forEach(j => taskObjsArray.push(j));
     instantiateToDoList(storedToDosArray[i].title, storedToDosArray[i].tasks, storedToDosArray[i].urgent);
   }
 }
+
 
 function parseLocalStorage() {
   var storedToDosArray = localStorage.getItem('ToDoList');
@@ -58,14 +67,14 @@ function targetNewTaskDescription() {
 
 function targetNewToDoListValues() {
   if (event.target.className === 'new-list-btn') {
-  instantiateToDoList(titleInput.value, taskObjsArray);
+  instantiateToDoList(titleInput.value, taskObjsArray, false);
   tasksWrapperOnForm.innerText = '';
   hideTasksWrapperOnForm();
   }
 }
 
-function instantiateToDoList(title, tasks, urgent) {
-  toDoList = new ToDoList(title, tasks, urgent);
+function instantiateToDoList(title, tasks, urgent, id) {
+  toDoList = new ToDoList(title, tasks, urgent, id);
   allToDoCards.push(toDoList);
   displayNewToDoList(toDoList);
   formInputs.reset();
@@ -185,9 +194,13 @@ function disableDeleteBtn() {
 }
 
 function showUrgentStyling() {
-  event.target.closest(".card").classList.toggle("active");
-  toDoList.updateToDo(allToDoCards);
-  toDoList.saveToStorage(allToDoCards);
+  var listEventId = event.target.htmlFor;
+  for (var i = 0; i < allToDoCards.length; i++) {
+    if (allToDoCards[i].id == listEventId) {
+    toDoList.updateToDo(allToDoCards[i]);
+    }
+    toDoList.saveToStorage(allToDoCards);
+  }
 }
 
 function searchByTitle() {
@@ -206,7 +219,7 @@ function searchByTitle() {
 
 function filterUrgentCards() {
   var searchedCard = document.querySelectorAll('.card');
-  urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
+  // urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
   for (var i = 0; i < allToDoCards.length; i++) {
     if (!allToDoCards[i].urgent === true) {
       searchedCard[i].classList.toggle('hidden');
