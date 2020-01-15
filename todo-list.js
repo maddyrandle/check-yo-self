@@ -1,9 +1,9 @@
 class ToDoList {
-  constructor(title, tasks) {
+  constructor(title, tasks, urgent) {
     this.id = Date.now();
     this.title = title;
     this.tasks = tasks;
-    this.urgent = false;
+    this.urgent = urgent || false;
   }
 
   saveToStorage() {
@@ -14,13 +14,15 @@ class ToDoList {
 
   }
 
-  updateToDo() {
+  updateToDo(list) {
     // should update the todo’s title and urgency
     this.urgent = !this.urgent;
+
   }
 
-  updateTask() {
+  updateTask(task) {
     // should update a task’s content and if it has been completed
+    task.completed = !task.completed;
   }
 }
 

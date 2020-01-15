@@ -7,9 +7,7 @@ var taskInput = document.querySelector('#task-input');
 var taskObjsArray = [];
 var allToDoCards = [];
 var toDoList;
-var cardFooter = document.querySelector('card-footer');
 
-// cardFooter.addEventListener('click', disableDeleteBtn);
 formInputs.addEventListener('keyup', disableBtns);
 tasksWrapperOnForm.addEventListener('click', removeTask);
 toDoListsWrapper.addEventListener('click', clickHandler);
@@ -36,7 +34,8 @@ function inspectLocalStorage() {
   var storedToDosArray = parseLocalStorage();
   for (var i = 0; i < storedToDosArray.length; i++) {
     storedToDosArray[i].tasks.forEach(j => taskObjsArray.push(j));
-    instantiateToDoList(storedToDosArray[i].title, storedToDosArray[i].tasks);
+    instantiateToDoList(storedToDosArray[i].title, storedToDosArray[i].tasks, storedToDosArray[i].urgent);
+    console.log(storedToDosArray[i].urgent)
   }
 }
 
@@ -62,8 +61,8 @@ function targetNewToDoListValues() {
   }
 }
 
-function instantiateToDoList(title, tasks) {
-  toDoList = new ToDoList(title, tasks);
+function instantiateToDoList(title, tasks, urgent) {
+  toDoList = new ToDoList(title, tasks, urgent);
   allToDoCards.push(toDoList);
   displayNewToDoList(toDoList);
   formInputs.reset();
@@ -157,7 +156,7 @@ function designateTaskCompleted() {
     for (var j = 0; j < taskarray.length; j++) {
       if (taskarray[j].id === taskEventId) {
         taskWrapper.classList.add('task-text-active');
-        taskarray[j].completed = !taskarray[j].completed;
+        toDoList.updateTask(taskarray[j]);
       }
     }
 
@@ -182,9 +181,10 @@ function disableDeleteBtn() {
   }
 }
 
-// function updateToDoListUrgency {
-//
-// }
+function showUrgentStyling() {
+  toDoList.updateToDo(allToDoCards);
+  toDoList.saveToStorage(allToDoCards);
+}
 
 
 

@@ -22,7 +22,7 @@ function displayNewToDoList(toDoList) {
   msgToUser.classList.add('hidden');
   toDoListsWrapper.classList.remove('hidden');
   toDoListsWrapper.insertAdjacentHTML('afterbegin', `
-  <div id="${toDoList.id}" class="card regular-card">
+  <div class="card regular-card">
     <header class="card-header">
       <h1 class="card-title regular-card-title">${toDoList.title}</h1>
     </header>
@@ -71,8 +71,9 @@ function displayTasksOnToDoList() {
     </div>
     `);
     newvar = document.getElementById(`${taskId}`);
-    newvar.checked = taskObjsArray[i].completed
+    newvar.checked = taskObjsArray[i].completed;
     task = document.getElementById(`${newId}`);
+
     if (newvar.checked === true) {
       task.classList.add('task-text-active');
     } else {
@@ -81,31 +82,6 @@ function displayTasksOnToDoList() {
   }
 }
 
-// function showUrgentStyling() {
-//   var urgentStyle = event.target.nextElementSibling;
-//   var urgentCard = event.target.closest('.card');
-//   var urgentHeader = document.querySelector('.card-title');
-//   var urgentFooter = document.querySelector('.card-footer');
-//   event.target.classList.contains('.card');
-//   .add('urgent-card');
-//   event.target.urgentHeader.classList
-//   .add('urgent-card-title');
-//   event.target.urgentStyle.classList
-//   .add('urgent-footer-font');
-//   event.target.urgentFooter.classList
-//   .add('urgent-card-footer');
-//
-// }
 
-function showUrgentStyling() {
-  var card = event.target.closest('.card');
-  var urgentBtn = card.querySelector('.urgent-btn');
-
-  for (var i = 0; i < allToDoCards.length; i++) {
-    console.log(allToDoCards[i].urgent);
-
-    allToDoCards[i].urgent = !allToDoCards[i].urgent;
-  }
-}
 
 //
