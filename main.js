@@ -10,7 +10,7 @@ var toDoList;
 var searchInput = document.querySelector('#search-input');
 var urgentFilterBtn = document.querySelector('.urgent-filter-btn');
 
-urgentFilterBtn.addEventListener('keyup', filterUrgentCards);
+urgentFilterBtn.addEventListener('click', filterUrgentCards);
 searchInput.addEventListener('keyup', searchByTitle);
 formInputs.addEventListener('keyup', disableBtns);
 tasksWrapperOnForm.addEventListener('click', removeTask);
@@ -204,7 +204,8 @@ function searchByTitle() {
 }
 
 function filterUrgentCards() {
-  
+  console.log('here');
+  urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
 }
 
 

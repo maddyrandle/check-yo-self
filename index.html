@@ -18,7 +18,6 @@
         </div>
       </section>
     </section>
-
     <section id="form-and-filter-wrapper">
       <section class="form-wrapper">
         <form>
@@ -40,53 +39,11 @@
         <button class="urgent-filter-btn-active hidden" type="button">Filter by Urgency</button>
       </section>
     </section>
-
     <section id="list-wrapper">
       <p class="task-text make-list-msg">Create a to-do list.</p>
-
       <section class="left-side hidden">
-        <!-- NEW LIST CARD GOES HERE -->
 
       </section>
-
-<!-- START OF URGENT CARD WITH NEW STYLING CLASSES -->
-      <section class="rigth-side hidden">
-
-        <div class="card urgent-card hidden">
-            <header class="card-header">
-              <h1 class="card-title urgent-card-title">${titleInput.value}</h1>
-            </header>
-
-            <main class="card-main">
-              <section class="single-task-wrapper">
-
-
-                <div class="checkbox-img-wrapper">
-                  <img class="checkbox-img-active" src="./assets/checkbox-active.svg" alt="circle check box checked">
-                </div>
-
-
-                <p class="task-text task-text-active">${}</p>
-              </section>
-            </main>
-
-            <footer class="card-footer urgent-card-footer">
-              <div class="img-wrapper">
-                <img class="img-btn urgent-img-btn-active" src="./assets/urgent-active.svg" alt=" red lightening bolt">
-                <p class="urgent-footer-font">URGENT</p>
-              </div>
-              <div class="img-wrapper">
-                <img class="close-img-btn hidden" src="./assets/delete.svg" alt="close icon">
-                <img class="img-btn close-img-btn-active" src="./assets/delete-active.svg" alt="close icon">
-                <p class="urgent-footer-font">DELETE</p>
-              </div>
-            </footer>
-          </div>
-      </section>
-
-    </section>
-
-
   <script src="./update-dom-html.js"></script>
   <script src="./task.js"></script>
   <script src="./todo-list.js"></script>
