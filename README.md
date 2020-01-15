@@ -21,14 +21,6 @@ Check Yo'Self is the last solo project for Front End Module 1 at the Turing Scho
 5. Click "Make Task List" button 
 6. Explore the application by, *making lists urgent, marking tasks on the list as completed, filtering lists by urgency, deleting lists, searching for lists*
 
-## Challenges
-
-This is where project challenges will go.
-
-## Wins
-
-This is where project wins will go.
-
 ## Composition
 Desktop Layout:
 
