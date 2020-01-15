@@ -18,12 +18,11 @@ function instantiateTask(description) {
 
 function displayNewToDoList(toDoList) {
   var msgToUser = document.querySelector('.make-list-msg');
-  var checkboxId = Date.now().toString(36);
-  var newId = Date.now();
+  var newvar;
   msgToUser.classList.add('hidden');
   toDoListsWrapper.classList.remove('hidden');
   toDoListsWrapper.insertAdjacentHTML('afterbegin', `
-  <div id="${newId}" class="card regular-card">
+  <div class="card regular-card">
     <header class="card-header">
       <h1 class="card-title regular-card-title">${toDoList.title}</h1>
     </header>
@@ -32,9 +31,9 @@ function displayNewToDoList(toDoList) {
       </section>
     </main>
     <footer class="card-footer regular-card-footer">
-      <div class="urgent-img-wrapper img-wrapper">
-        <input id="${checkboxId}" type="checkbox"/>
-        <label for="${checkboxId}" class="urgent-btn"></label>
+      <div id="${toDoList.id}" class="urgent-img-wrapper img-wrapper">
+        <input id="${toDoList.id}" type="checkbox"/>
+        <label for="${toDoList.id}" class="urgent-btn"></label>
         <p class="regular-footer-font">URGENT</p>
       </div>
       <div class="delete-img-wrapper img-wrapper">
@@ -47,6 +46,8 @@ function displayNewToDoList(toDoList) {
     </footer>
   </div>
   `);
+  // newvar = document.getElementById(`${toDoList.id}`);
+  .checked = allToDoCards[i].urgent;
   displayTasksOnToDoList();
   taskObjsArray = [];
 }
@@ -59,7 +60,7 @@ function displayTasksOnToDoList() {
   var task;
   var newId;
   for (var i = 0; i < taskObjsArray.length; i++) {
-    newId = Date.now().toString(36);
+    newId = createId();
     taskDescription = taskObjsArray[i].description;
     taskId = taskObjsArray[i].id;
     taskWrapper.insertAdjacentHTML('beforeend', `
