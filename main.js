@@ -43,7 +43,6 @@ function pageLoad() {
 
 function inspectLocalStorage() {
   var storedToDosArray = parseLocalStorage();
-
   for (var i = 0; i < storedToDosArray.length; i++) {
     storedToDosArray[i].tasks.forEach(j => taskObjsArray.push(j));
     instantiateToDoList(storedToDosArray[i].title, storedToDosArray[i].tasks, storedToDosArray[i].urgent);

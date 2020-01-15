@@ -46,8 +46,7 @@ function displayNewToDoList(toDoList) {
     </footer>
   </div>
   `);
-  // newvar = document.getElementById(`${toDoList.id}`);
-  .checked = allToDoCards[i].urgent;
+
   displayTasksOnToDoList();
   taskObjsArray = [];
 }
