@@ -23,6 +23,8 @@ function clickHandler() {
   } else if (event.target.classList.contains('label-btn')) {
     designateTaskCompleted();
     disableDeleteBtn();
+  } else if (event.target.classList.contains('urgent-btn')) {
+    showUrgentStyling();
   }
 }
 
@@ -164,17 +166,14 @@ function designateTaskCompleted() {
 }
 
 function disableDeleteBtn() {
-  console.log('here');
   var card = event.target.closest('.card');
   var deleteBtn = card.querySelector('.delete-btn');
   for (var i = 0; i < allToDoCards.length; i++) {
     var taskarray = allToDoCards[i].tasks;
     for (var j = 0; j < taskarray.length; j++) {
       if (taskarray.every(task => task.completed === true)) {
-        console.log('btn should be enabled');
         deleteBtn.disabled = false;
       } else {
-        console.log('btn should be disabled');
         deleteBtn.disabled = true;
       }
     }
@@ -183,7 +182,9 @@ function disableDeleteBtn() {
   }
 }
 
-function urgent
+// function updateToDoListUrgency {
+//
+// }
 
 
 
