@@ -334,11 +334,6 @@ img {
   grid-area: button;
 }
 
-.delete-btn,
-.urgent-btn {
-  background: none;
-}
-
 /* ACTIVE CARD STYLING */
 .urgent-card {
   border: 3px solid #FFC30C;
@@ -394,8 +389,7 @@ img {
   justify-content: flex-start;
 }
 
-.delete-btn,
-.urgent-btn {
+.delete-btn {
   background: none;
 }
 
