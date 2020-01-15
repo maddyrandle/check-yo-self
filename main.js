@@ -185,6 +185,7 @@ function disableDeleteBtn() {
 }
 
 function showUrgentStyling() {
+  event.target.closest(".card").classList.toggle("active");
   toDoList.updateToDo(allToDoCards);
   toDoList.saveToStorage(allToDoCards);
 }
@@ -204,8 +205,13 @@ function searchByTitle() {
 }
 
 function filterUrgentCards() {
-  console.log('here');
+  var searchedCard = document.querySelectorAll('.card');
   urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
+  for (var i = 0; i < allToDoCards.length; i++) {
+    if (!allToDoCards[i].urgent === true) {
+      searchedCard[i].classList.toggle('hidden');
+    }
+  }
 }
 
 
