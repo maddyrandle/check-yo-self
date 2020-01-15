@@ -108,7 +108,6 @@ function matchToDoListId() {
 function removeToDoList() {
   var listToRemove = matchToDoListId(event);
   var i = allToDoCards.indexOf(listToRemove);
-
   if (event.target.classList.contains('delete-btn')) {
     event.target.closest('.card').remove();
     allToDoCards.splice(i, 1);
@@ -191,10 +190,11 @@ function disableDeleteBtn() {
 }
 
 function showUrgentStyling() {
+  var activeClass = event.target.closest('.card').classList.add('active');
   var listEventId = event.target.htmlFor;
   for (var i = 0; i < allToDoCards.length; i++) {
     if (allToDoCards[i].id == listEventId) {
-    toDoList.updateToDo(allToDoCards[i]);
+    allToDoCards[i].updateToDo();
     }
     toDoList.saveToStorage(allToDoCards);
   }
@@ -217,6 +217,11 @@ function searchByTitle() {
 function filterUrgentCards() {
   var searchedCard = document.querySelectorAll('.card');
   urgentFilterBtn.classList.toggle('urgent-filter-btn-active');
+
+  // if (searchedCard.classList.contains('active')) {
+  //
+  // }
+
   for (var i = 0; i < allToDoCards.length; i++) {
     if (!allToDoCards[i].urgent === true) {
       searchedCard[i].classList.toggle('hidden');

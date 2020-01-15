@@ -14,9 +14,9 @@ class ToDoList {
 
   }
 
-  updateToDo(card) {
+  updateToDo() {
     // should update the todo’s title and urgency
-    card.urgent = !card.urgent;
+    this.urgent = !this.urgent;
   }
 
   updateTask(task) {
