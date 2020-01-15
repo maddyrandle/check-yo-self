@@ -104,6 +104,7 @@ span {
   height: 65%;
   outline: none;
   padding-left: 4%;
+  text-transform: lowercase;
   width: 86%;
 }
 
@@ -160,6 +161,7 @@ form {
   margin: 1% 0;
   outline: none;
   padding: 2% 0 2% 4%;
+  text-transform: lowercase;
 }
 
 #title-input {
@@ -204,9 +206,7 @@ button,
 
 button:hover,
 .img-btn:hover,
-/* .img-wrapper:hover, */
 .img-btn:hover,
-/* .checkbox-img-wrapper:hover, */
 .close-img-btn:hover  {
   cursor: pointer;
 }
@@ -224,6 +224,8 @@ button:hover,
   padding: 3%;
   width: 92%;
 }
+
+
 
 #filter-urgent-wrapper {
   align-items: center;
@@ -285,6 +287,10 @@ button:hover,
   width: 34%;
 }
 
+img {
+  pointer-events: none;
+}
+
 .all-tasks {
   display: flex;
   flex-direction: column;
@@ -321,17 +327,13 @@ button:hover,
 
 .regular-footer-font {
   color: #3C6577;
+  font-size: 22px;
 }
 
 .checkbox-img-wrapper {
   margin-right: 4%;
   width: 28px;
   grid-area: button;
-}
-
-.delete-btn,
-.urgent-btn {
-  background: none;
 }
 
 /* ACTIVE CARD STYLING */
@@ -342,15 +344,17 @@ button:hover,
 
 .urgent-card-title {
   border-bottom: 3px solid #FFC30C;
-  color: #1F1F3D;
+  color: #B23A25;
 }
 
 .urgent-card-footer {
   border-top: 3px solid #FFC30C;
+  font-size: 22px;
 }
 
 .urgent-footer-font {
-  color: #1F1F3D;
+  color: #B23A25;
+  font-size: 22px;
 }
 
 .task-text-active {
@@ -385,12 +389,9 @@ button:hover,
 .checkbox-img-wrapper {
   display: flex;
   justify-content: flex-start;
-  /* align-items: center; */
-  /* height: 100vh; */
 }
 
-.delete-btn,
-.urgent-btn {
+.delete-btn {
   background: none;
 }
 
@@ -402,9 +403,7 @@ input[type = checkbox] {
 input + label {
   font-size: 1.2rem;
   width: 2rem;
-  height: 2rem;
-  justify-content: center;
-  align-items: center;
+  height: 3rem;
   transition: .1s all;
   cursor: pointer;
 }
@@ -413,9 +412,6 @@ input + label:hover {
   transform: scale(.95);
 }
 
-input + label:after {
-  content: url(./assets/checkbox.svg);
-}
 
 input:checked + label {
   transform: scale(1.1);
@@ -425,8 +421,20 @@ input:checked + label:hover {
   transform: scale(1.05);
 }
 
+input + label:after {
+  content: url(./assets/checkbox.svg);
+}
+
 input:checked + label:after {
   content: url(./assets/checkbox-active.svg);
+}
+
+.urgent-img-wrapper input + label {
+  content: url(./assets/urgent.svg);
+}
+
+.urgent-img-wrapper input:checked + label {
+  content: url(./assets/urgent-active.svg);
 }
 
 /*  */
