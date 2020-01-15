@@ -7,7 +7,9 @@ var taskInput = document.querySelector('#task-input');
 var taskObjsArray = [];
 var allToDoCards = [];
 var toDoList;
+var searchInput = document.querySelector('#search-input');
 
+searchInput.addEventListener('keyup', searchByTitle);
 formInputs.addEventListener('keyup', disableBtns);
 tasksWrapperOnForm.addEventListener('click', removeTask);
 toDoListsWrapper.addEventListener('click', clickHandler);
@@ -35,7 +37,6 @@ function inspectLocalStorage() {
   for (var i = 0; i < storedToDosArray.length; i++) {
     storedToDosArray[i].tasks.forEach(j => taskObjsArray.push(j));
     instantiateToDoList(storedToDosArray[i].title, storedToDosArray[i].tasks, storedToDosArray[i].urgent);
-    console.log(storedToDosArray[i].urgent)
   }
 }
 
@@ -184,6 +185,20 @@ function disableDeleteBtn() {
 function showUrgentStyling() {
   toDoList.updateToDo(allToDoCards);
   toDoList.saveToStorage(allToDoCards);
+}
+
+function searchByTitle() {
+  var searchInput = document.querySelector('#search-input');
+  var searchedCard = toDoListsWrapper.querySelectorAll('.card');
+  for (var i = 0; i < searchedCard.length; i++) {
+    if (searchInput.value === '') {
+    searchedCard[i].classList.remove('hidden');
+  } else if (searchInput.value !== searchedCard[i].querySelector('h1').textContent) {
+    searchedCard[i].classList.add('hidden');
+  } else if (searchInput.value === searchedCard[i].querySelector('h1').textContent)  {
+    searchedCard[i].classList.remove('hidden');
+    }
+  }
 }
 
 

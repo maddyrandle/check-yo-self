@@ -104,6 +104,7 @@ span {
   height: 65%;
   outline: none;
   padding-left: 4%;
+  text-transform: lowercase;
   width: 86%;
 }
 
@@ -160,6 +161,7 @@ form {
   margin: 1% 0;
   outline: none;
   padding: 2% 0 2% 4%;
+  text-transform: lowercase;
 }
 
 #title-input {

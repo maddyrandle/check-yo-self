@@ -19,10 +19,11 @@ function instantiateTask(description) {
 function displayNewToDoList(toDoList) {
   var msgToUser = document.querySelector('.make-list-msg');
   var checkboxId = Date.now().toString(36);
+  var newId = Date.now();
   msgToUser.classList.add('hidden');
   toDoListsWrapper.classList.remove('hidden');
   toDoListsWrapper.insertAdjacentHTML('afterbegin', `
-  <div class="card regular-card">
+  <div id="${newId}" class="card regular-card">
     <header class="card-header">
       <h1 class="card-title regular-card-title">${toDoList.title}</h1>
     </header>
